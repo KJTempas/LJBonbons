@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-
-    <NewStudentForm v-on:student-added="newStudentAdded"></NewStudentForm>
+    <Header></Header>
+    <OrderForm v-on:student-added="newStudentAdded"></OrderForm>
     <StudentTable 
       v-bind:students="students" 
       v-on:student-present="studentArrivedOrLeft"
@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import NewStudentForm from './components/NewStudentForm.vue'
+import Header from '@/components/Header'
+import OrderForm from './components/OrderForm.vue'
 import StudentTable from './components/StudentTable.vue'
 import StudentMessage from './components/StudentMessage'
 
@@ -30,7 +31,8 @@ export default {
     }
   },
   components: {
-    NewStudentForm,
+    Header,
+    OrderForm,
     StudentTable,
     StudentMessage
   },
