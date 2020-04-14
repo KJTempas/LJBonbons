@@ -1,15 +1,14 @@
 <template>
   <div id="app">
     <Header></Header>
-    <OrderForm v-on:customer-added="newCustomrAdded"></OrderForm>
+    <OrderForm v-on:customer-added="newCustomerAdded"></OrderForm>
     <OrderTable 
       v-bind:customers="customers" 
-      v-on:student-present="studentArrivedOrLeft"
-      v-on:delete-student="studentDeleted">
+
+     v-on:answer-changed = "answerChanged">
       </OrderTable> 
-              <!-- v-on is an event handler for student-present event; call method studentArrivedOrLeft in App.vue-->
-    <!-- v-bind message and name to StudentMessage-->
-     <StudentMessage v-bind:message="message" v-bind:name="name"></StudentMessage>
+              
+     <Shipping ></Shipping>
 
   </div>
 </template>
@@ -18,14 +17,14 @@
 import Header from '@/components/Header'
 import OrderForm from './components/OrderForm.vue'
 import OrderTable from './components/OrderTable.vue'
-import StudentMessage from './components/StudentMessage'
+import Shipping from './components/Shipping.vue'
 
 
 export default {
   name: 'app',
   data() {
     return {
-      students: [], //array of students in data
+      customers: [], //array of customers in data
       message: '',
       name: ''
     }
@@ -34,22 +33,24 @@ export default {
     Header,
     OrderForm,
     OrderTable,
-    StudentMessage
+    Shipping
   },
   mounted() {
-    this.updateStudents() //call updateStudents method
+    this.updateCustomers() //call updateCustomers method
   },
   methods: {
-    newStudentAdded(student) {
-      //call addStudent method in StudentService.js
-     this.$student_api.addStudent(student).then( student => {
-       //after req is complete, call updateStudents to update student array
-       this.updateStudents()
+    newCustomerAdded(customer) {
+      //call addCustomer method in StudentService.js
+     this.$customer_api.addCustomer(customer).then( customer => {
+       //after req is complete, call updateCustomers to update array
+       this.updateCustomers()
      }).catch(err => {
        let msg = err.response.data.join(', ')
-       alert('Error adding student.\n' + msg)
+       alert('Error adding customer.\n' + msg)
      })
     },
+    addBox()
+   /* answerChanged(answer)
     studentArrivedOrLeft(student) {
       this.$student_api.updateStudent(student).then( () => {
         this.message = student.present ? 'Welcome,' : 'Goodbye, '
@@ -62,10 +63,10 @@ export default {
       this.$student_api.deleteStudent(student.id).then( () => {
         this.updateStudents()
       })
-    },
-    updateStudents() {
-      this.$student_api.getAllStudents().then( students => {
-        this.students = students //setting this.students to students in the Vue model
+    },*/
+    updateCustomers() {
+      this.$customer_api.getAllCustomers().then( customers => {
+        this.customers = customers //setting this.customer to C in the Vue model
       })
     }
   }

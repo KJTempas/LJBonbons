@@ -28,10 +28,10 @@
                 <div class="form-group">
                     <p>Choose your box size and coating<p>
                     <p>1. Select box size</p>
-                    <input type="radio" v-model="choice" v-bind:value="small" v-on:change='sizeSelected(id, choice)'>
-                    <label>Small</label>
-                    <input type="radio" v-model="choice" v-bind:value="large" v-on:change='sizeSelected(id, choice)'>
-                    <label>Large</label>
+                    <input type="radio" v-model="choice" v-bind:value="small" v-on:change='answerChanged(choice)'>
+                    <label>Small-12</label>
+                    <input type="radio" v-model="choice" v-bind:value="large" v-on:change='answerChanged(choice)'>
+                    <label>Large-24</label>
                 </div>
 
                 <div class="form-group">
@@ -67,8 +67,8 @@ export default {
     methods: {
         addCustomer() {
             this.errors = []
-            if (this.newfirstName && this.newLastName && this.email) {
-                let customer = { firstName: this.firstName, lastName: this.lastNBame,  email: this.email, present: false}
+            if (this.firstName && this.lastName && this.email) {
+                let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email}
                 // emit message to parent with new student
                 this.$emit('customer-added', customer)
                 this.firstName= ''
@@ -88,7 +88,7 @@ export default {
 
 <style>
 .order {
-    background-color: #a9ddf5;
+    background-color: #a9ddf5;  /* lt blue*/
 }
-/* write any styles for this component here */
+
 </style>

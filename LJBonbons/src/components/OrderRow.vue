@@ -3,13 +3,14 @@
    <!--template elements must contain exactly one child element(like the <tr>)  -->
        <!--but that element can contain many children   -->
    <!--<tr v-bind:class="'present-' + student.present">-->
-    <tr class="student-row" v-bind:class="'present-' + student.present">
+    <tr class="order-row" v-bind:class="'present-' + student.present">
 
-        <td>{{ student.name }}</td>
-        <td>{{ student.starID }}</td>
-        <td><input type="checkbox" v-model="student.present" v-on:change="checked(student)"></td>
+        <td>{{box.id}}
+        <td>{{ box.size }}</td>
+        <td>{{ box.coating }}</td>
+       
         <td v-show="edit">
-            <img class="delete-icon" v-on:click="deleteStudent(student)" src="@/assets/delete.png">
+            <img class="delete-icon" v-on:click="deleteBox(box)" src="@/assets/delete.png">
             </td>
     </tr>
 </template>
@@ -18,16 +19,16 @@
 export default {
     name: 'OrderRow',
     props: {
-        student: Object,
+        box: Object,
         edit: Boolean
     },
     methods: {
-        checked(student) {
+        /*checked(customer) {
             this.$emit('student-present', student)
-        },
-        deleteStudent(student) {
-            if (confirm(`Delete ${student.name}?`)) {
-                this.$emit('delete-student', student)
+        },*/
+        deleteBox(box) {
+            if (confirm(`Delete ${customer.box}?`)) {
+                this.$emit('delete-box', customer)
             }
         }
     }
