@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <Header></Header>
-    <OrderForm v-on:student-added="newStudentAdded"></OrderForm>
-    <StudentTable 
-      v-bind:students="students" 
+    <OrderForm v-on:customer-added="newCustomrAdded"></OrderForm>
+    <OrderTable 
+      v-bind:customers="customers" 
       v-on:student-present="studentArrivedOrLeft"
       v-on:delete-student="studentDeleted">
-      </StudentTable> 
+      </OrderTable> 
               <!-- v-on is an event handler for student-present event; call method studentArrivedOrLeft in App.vue-->
     <!-- v-bind message and name to StudentMessage-->
      <StudentMessage v-bind:message="message" v-bind:name="name"></StudentMessage>
@@ -17,7 +17,7 @@
 <script>
 import Header from '@/components/Header'
 import OrderForm from './components/OrderForm.vue'
-import StudentTable from './components/StudentTable.vue'
+import OrderTable from './components/OrderTable.vue'
 import StudentMessage from './components/StudentMessage'
 
 
@@ -33,7 +33,7 @@ export default {
   components: {
     Header,
     OrderForm,
-    StudentTable,
+    OrderTable,
     StudentMessage
   },
   mounted() {

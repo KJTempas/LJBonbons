@@ -6,13 +6,18 @@
         </div>
 
         <div class="card add-student m-2 p-2">
-            <form>
+            <form class="order">
               <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you or your loved ones</h4>
               <h5 class="card-title"> Each box contains coconut, rum, pina colada, lime, mango and passionfruit flavored bonbons</h5>
-
+                
               <div class="form-group">
-                <label for="name">Customer Name</label>
-                <input id="name" class="form-control" v-model.trim="CustomerName">
+                <label for="Fname">First Name</label>
+                <input id="fname" class="form-control" v-model.trim="firstName">
+              </div>
+
+                <div class="form-group">
+                <label for="Lname">Last Name</label>
+                <input id="lname" class="form-control" v-model.trim="lastName">
               </div>
 
               <div class="form-group">
@@ -21,6 +26,7 @@
               </div>
 
                 <div class="form-group">
+                    <p>Choose your box size and coating<p>
                     <p>1. Select box size</p>
                     <input type="radio" v-model="choice" v-bind:value="small" v-on:change='sizeSelected(id, choice)'>
                     <label>Small</label>
@@ -36,7 +42,7 @@
                     <label>Dark Chocolate</label>
                 </div>
 
-              <button class="btn btn-primary" v-on:click.prevent="addStudent">Add</button>
+              <button class="btn btn-primary" v-on:click.prevent="addBox">Add to Order</button>
             </form>
 
         </div>
@@ -50,28 +56,39 @@ export default {
     name: 'OrderForm',
     data() {
         return {
-            customerName: '',
+            firstName: '',
+            lastName: '',
             email: '',
-            errors: []
+            errors: [],
+            boxSize: '',
+            coating: ''
         }
     },
     methods: {
         addCustomer() {
             this.errors = []
-            if (this.newCustomerName && this.email) {
-                let customer = { name: this.newCustomrName, email: this.email, present: false}
+            if (this.newfirstName && this.newLastName && this.email) {
+                let customer = { firstName: this.firstName, lastName: this.lastNBame,  email: this.email, present: false}
                 // emit message to parent with new student
                 this.$emit('customer-added', customer)
-                this.newCustomerName= ''
+                this.firstName= ''
+                this.lastName= ''
                 this.email= ''
             } else {
                 this.errors.push('Name and email are required.')
             }
+        },
+        addBox() {
+            let box = { size: this.boxSize, coating: this.coating}
         }
+
     }
 }
 </script>
 
 <style>
+.order {
+    background-color: #a9ddf5;
+}
 /* write any styles for this component here */
 </style>

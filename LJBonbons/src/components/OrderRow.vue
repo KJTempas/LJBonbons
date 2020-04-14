@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: 'StudentRow',
+    name: 'OrderRow',
     props: {
         student: Object,
         edit: Boolean
