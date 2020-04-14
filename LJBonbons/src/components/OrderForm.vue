@@ -7,16 +7,35 @@
 
         <div class="card add-student m-2 p-2">
             <form>
-              <h4 class="card-title">Add new student</h4>
+              <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you or your loved ones</h4>
+              <h5 class="card-title"> Each box contains coconut, rum, pina colada, lime, mango and passionfruit flavored bonbons</h5>
 
               <div class="form-group">
-                <label for="name">Name</label>
-                <input id="name" class="form-control" v-model.trim="newStudentName">
+                <label for="name">Customer Name</label>
+                <input id="name" class="form-control" v-model.trim="CustomerName">
               </div>
+
               <div class="form-group">
-                <label for="starID">Star ID</label>
-                <input id="starID" class="form-control" v-model.trim="newStarID">
+                <label for="email">Email</label>
+                <input id="email" class="form-control" v-model.trim="email">
               </div>
+
+                <div class="form-group">
+                    <p>1. Select box size</p>
+                    <input type="radio" v-model="choice" v-bind:value="small" v-on:change='sizeSelected(id, choice)'>
+                    <label>Small</label>
+                    <input type="radio" v-model="choice" v-bind:value="large" v-on:change='sizeSelected(id, choice)'>
+                    <label>Large</label>
+                </div>
+
+                <div class="form-group">
+                    <p>2. Select coating type </p>
+                    <input type="radio" v-model="choice" v-bind:value="milkChocolate" v-on:change='coatingSelected(id, choice)'>
+                    <label>Milk Chocolate</label>
+                    <input type="radio" v-model="choice" v-bind:value="darkChocolate" v-on:change='coatingSelected(id, choice)'>
+                    <label>Dark Chocolate</label>
+                </div>
+
               <button class="btn btn-primary" v-on:click.prevent="addStudent">Add</button>
             </form>
 
@@ -28,25 +47,25 @@
 <script>
 //create and export component here
 export default { 
-    name: 'NewStudentForm',
+    name: 'OrderForm',
     data() {
         return {
-            newStudentName: '',
-            newStarID: '',
+            customerName: '',
+            email: '',
             errors: []
         }
     },
     methods: {
-        addStudent() {
+        addCustomer() {
             this.errors = []
-            if (this.newStudentName && this.newStarID) {
-                let student = { name: this.newStudentName, starID: this.newStarID, present: false}
+            if (this.newCustomerName && this.email) {
+                let customer = { name: this.newCustomrName, email: this.email, present: false}
                 // emit message to parent with new student
-                this.$emit('student-added', student)
-                this.newStudentName= ''
-                this.newStarID= ''
+                this.$emit('customer-added', customer)
+                this.newCustomerName= ''
+                this.email= ''
             } else {
-                this.errors.push('Name and StarID are required.')
+                this.errors.push('Name and email are required.')
             }
         }
     }
