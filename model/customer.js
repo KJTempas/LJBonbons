@@ -3,12 +3,16 @@ module.exports = (sequelize, DataTypes) =>{
     let Customer = sequelize.define('Customer', {
         firstName: {
             type: DataTypes.STRING,
+            allowNull: false
         }, 
         lastName: {
             type: DataTypes.STRING,
+            allowNull: false
         },
         email: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
         }
     })
 

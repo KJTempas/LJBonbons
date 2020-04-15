@@ -40,7 +40,7 @@ export default {
         font-size: 400%
     }
     #bonbons {
-        color: green;
+        color:#a9ddf5;
         font-size: 400%
     }
 
