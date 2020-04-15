@@ -6,7 +6,7 @@
 
             <div class="edit-table-toggle form-check">
                 <input id="edit-table" type="checkbox" class="form-check-input" v-model="editTable">
-                <label for="edit-table" class="form-check-label">Edit table?</label>
+                <label for="edit-table" class="form-check-label">Edit order? </label>
             </div>
 
             <div id="order-table">
@@ -63,7 +63,8 @@ export default {
 </script>
 
 <style>
-.orderTable {
+
+#order-table {
     background-color: #a9f5d4;
 }
 /* write any styles for this component here */

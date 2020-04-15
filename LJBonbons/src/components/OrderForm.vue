@@ -29,9 +29,9 @@
                     <p>Choose your box size and coating<p>
                     <p>1. Select box size</p>
                     <input type="radio" v-model="choice" v-bind:value="small" v-on:change='answerChanged(choice)'>
-                    <label>Small-12</label>
+                    <label>Small-12 bonbons for $24</label>
                     <input type="radio" v-model="choice" v-bind:value="large" v-on:change='answerChanged(choice)'>
-                    <label>Large-24</label>
+                    <label>Large-24 bonbons for $48</label>
                 </div>
 
                 <div class="form-group">

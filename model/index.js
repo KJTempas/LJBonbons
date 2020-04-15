@@ -1,4 +1,4 @@
-et Sequelize = require('sequelize')
+let Sequelize = require('sequelize')
 
 let env = process.env.NODE_ENV || 'development'
 let config = require(__dirname + '/../config.json')[env]
@@ -12,7 +12,7 @@ if (config.use_env_variable) {
     sequelize = new Sequelize(config)
 }
 
-let model = sequelize['import']('./student.js')
+let model = sequelize['import']('./customer.js')
 db[model.name] = model
 
 db.sequelize = sequelize

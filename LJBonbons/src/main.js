@@ -4,7 +4,7 @@ import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 
 //importing StudentServices 
-import StudentAPIService from '@/services/StudentService'
+import CustomerAPIService from '@/services/CustomerService'
 
 Vue.use(BootstrapVue)
 
@@ -13,7 +13,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 //Vue.config.productionTip = false
 //adding StudentServices to the Vue class prototype, so is accessible
-Vue.prototype.$student_api = StudentAPIService
+Vue.prototype.$student_api = CustomerAPIService
 
 new Vue({
   render: h => h(App),

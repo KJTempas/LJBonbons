@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     newCustomerAdded(customer) {
-      //call addCustomer method in StudentService.js
+      //call addCustomer method in CustomerService.js
      this.$customer_api.addCustomer(customer).then( customer => {
        //after req is complete, call updateCustomers to update array
        this.updateCustomers()
@@ -49,7 +49,9 @@ export default {
        alert('Error adding customer.\n' + msg)
      })
     },
-    addBox()
+   
+
+    
    /* answerChanged(answer)
     studentArrivedOrLeft(student) {
       this.$student_api.updateStudent(student).then( () => {

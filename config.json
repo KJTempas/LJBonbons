@@ -1,11 +1,11 @@
 {
     "development": {
-        "storage": customer.sqlite",
+        "storage": "customer.sqlite",
         "dialect": "sqlite"
 
     },
     "production": {
-        "use-env-variable": DATABASE_URL",
+        "use-env-variable": "DATABASE_URL",
         "dialect": "postgres"
     }
 }

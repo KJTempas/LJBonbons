@@ -1,0 +1,10 @@
+{
+    "name": "bonbon-store",
+    "description": "Vue and Express API BonBon app",
+    "author": "kathryn",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    }
+    
+}
