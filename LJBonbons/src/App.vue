@@ -4,8 +4,8 @@
     <!--when box-added is called in OrderForm.vue, it sends data here and addBox method below is called-->
     <OrderForm v-on:box-added = "addBox"> </OrderForm>
     <OrderTable 
-      v-bind:boxes="boxes" >
-
+      v-bind:boxes="boxes" 
+      v-on:delete-box="boxDeleted">
       </OrderTable> 
               
      <Shipping ></Shipping>
@@ -45,6 +45,11 @@ export default {
       this.boxes.push(newBox)
     },
 
+    boxDeleted(box) {
+          this.boxes = this.boxes.filter(function(b) {return b !=boxes})
+          }
+        },
+
     newCustomerAdded(customer) {
       //call addCustomer method in CustomerService.js
      this.$customer_api.addCustomer(customer).then( customer => {
@@ -55,21 +60,10 @@ export default {
        alert('Error adding customer.\n' + msg)
      })
     },
-   
-   /* answerChanged(answer)
-    
-    boxDeleted(box) {
-      this.$student_api.deleteStudent(student.id).then( () => {
-        this.updateStudents()
-      })
-    },*/
-    /*updateCustomers() {
-      this.$customer_api.getAllCustomers().then( customers => {
-        this.customers = customers //setting this.customer to C in the Vue model
-      })
-    }*/
+  
+  
   }
-}
+
 </script>
 
 <style>

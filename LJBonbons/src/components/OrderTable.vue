@@ -22,19 +22,20 @@
                     </tr>
                     
                     
-                    <tr v-for="box in boxes">
-                        <!--<td>{{box.number}}</td>-->
+                   <!-- <tr v-for="box in boxes">
                         <td> box # will go here</td>
                         <td>{{box.size}}</td>
                         <td>{{box.coating}}</td>
                         <td>$ will go here</td>
-                    </tr>
-                        <!--v-for="box in boxes"
-                        v-bind:key="box.number" 
-                        v-bind:boxSizeSelected="boxSizeSelected"
-                        v-bind:coatingTypeSelected ="coatingTypeSelected"
-                        v-bind:edit="editTable"
-                        v-on:delete-box="boxDeleted">-->
+                    </tr>-->
+                    <OrderRow
+                     v-for="box in boxes"
+                    v-bind:key="box.id"
+                     v-bind:size = "size"
+                     v-bind:coating = "coating"
+
+                     v-on:delete-box="boxDeleted">
+                     </OrderRow>
                     
 
                 </table>
@@ -49,7 +50,7 @@ import OrderRow from '@/components/OrderRow.vue'
 
 export default { 
     name: 'OrderTable',
-    //components: { OrderRow },
+    components: { OrderRow },
     data() {
         return {
             editTable: false

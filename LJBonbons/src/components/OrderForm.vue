@@ -76,10 +76,10 @@ export default {
     methods: {
         
         addBox() {
-           
+           //construct box object
             let newBox = { size: this.boxSizeSelected, coating: this.coatingTypeSelected}
-            console.log('new box in OrderForm.vue' , newBox)//flashes on screen briefly
-            this.$emit('box-added', newBox) //send new box object to parent to send to order table to display
+           //send new box object to parent to send to order table to display
+            this.$emit('box-added', newBox) 
             //reset radio buttons
             this.boxSizeSelected = ''
             this.coatingTypeSelected = ''
