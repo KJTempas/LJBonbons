@@ -25,7 +25,7 @@
                 <input id="email" class="form-control" v-model.trim="email">
               </div>
 
-                <button class="btn btn-success" v-on:click.prevent="addBox">Add Customer</button>
+                
 
                 <div class="form-group">
                     <p>Choose your box size and coating<p>
@@ -45,6 +45,8 @@
                 </div>
 
               <button class="btn btn-primary" v-on:click.prevent="addBox">Add Box to Order</button>
+              
+             
             </form>
 
         </div>
@@ -62,35 +64,54 @@ export default {
             lastName: '',
             email: '',
             errors: [],
-            boxSizeChoice: '',
-            coatingChoice: ''
+            sizeSelected: '',
+            coatingSelected: ''
         }
     },
     methods: {
-        addCustomer() {
+        
+        addBox() {
+            let box = { size: this.sizeSelected, coating: this.coatingSelected}
+            this.$emit('box-added', box) //send new box object to parent to send to order table to display
+        },
+
+        finalizeOrder() {
             this.errors = []
             if (this.firstName && this.lastName && this.email) {
                 let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email}
+                //todo - write to database
+
                 // emit message to parent with new student
-                this.$emit('customer-added', customer)
+                //this.$emit('customer-added', customer)
+                //clear data fields
                 this.firstName= ''
                 this.lastName= ''
                 this.email= ''
             } else {
                 this.errors.push('Name and email are required.')
             }
+            //todo - write boxes to database
         },
-        addBox() {
-            let box = { size: this.boxSizeChoice, coating: this.coatingChoice}
-        }
 
+    } ,
+    computed: {
+        totalBoxes() {
+            let total = 0
+            this.boxes.forEach(function(box) {
+                total+= boxes.howLong
+            })
+            return total
+            }
+            
+        }
     }
-}
+
 </script>
 
 <style>
 .order {
     background-color: #a9ddf5;  /* lt blue*/
 }
+
 
 </style>

@@ -1,9 +1,11 @@
+'use strict'
 module.exports = (sequelize, DataTypes) =>{
 
-let Box = sequelize.define('Box', {
-    boxNumber: {
+const Box = sequelize.define('Box', {
+    boxID: {
         type: DataTypes.INTEGER,
-
+        autoIncrement: true,
+        primaryKey: true
     },
     boxSize: {
         type: DataTypes.STRING,
@@ -12,8 +14,14 @@ let Box = sequelize.define('Box', {
     coating: {
         type: DataTypes.STRING,
         allowNull: false
-    }
-})
+    },
+});
+Box.associate = function(models) {
+    Box.belongsTo(models.Customer, {
+        foreignKey: 'customerId',
+    })
+
+}
 
 Box.sync({force: true}).then(()=> {
     console.log('synced box table')

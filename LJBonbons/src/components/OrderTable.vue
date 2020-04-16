@@ -10,6 +10,7 @@
             </div>
 
             <div id="order-table">
+                <h4> {{boxes.length}} boxes </h4>
                 <table class="table">
                     <tr>
                         <th>Box #</th>
@@ -17,15 +18,16 @@
                         <th>Coating Selected</th>
                         <th>$</th>
                         <th v-show="editTable">Delete</th>
+                        <th button class="btn btn-success" id="finalize" v-on:click.prevent="addBox">Finalize Order</button></th>
                     </tr>
                     
                     <OrderRow
-                        v-for="student in students"
-                        v-bind:key="student.name" 
-                        v-bind:student="student"
+                        v-for="box in boxes"
+                        v-bind:key="box.number" 
+                        v-bind:sizeSelected="sizeSelected"
+                        v-bind:coatingSelected ="coatingSelected"
                         v-bind:edit="editTable"
-                        v-on:student-present="studentArrivedOrLeft"
-                        v-on:delete-student="studentDeleted">
+                        v-on:delete-box="boxDeleted">
                     </OrderRow>
 
                 </table>
@@ -47,16 +49,12 @@ export default {
         }
     },
     props: {
-        students: Array
+        boxes: Array
     },
     methods: {
-        //a checked event will emit message to parent
-        studentArrivedOrLeft(student) {  //will pass student object with event
-            //todo emit message to parent
-            this.$emit('student-present', student)
-        },
-        studentDeleted(student) {
-            this.$emit('delete-student', student)
+        
+        boxDeleted(box) {
+            this.$emit('delete-box', box)
         }
     }
 }

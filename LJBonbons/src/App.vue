@@ -3,9 +3,7 @@
     <Header></Header>
     <OrderForm v-on:customer-added="newCustomerAdded"></OrderForm>
     <OrderTable 
-      v-bind:customers="customers" 
-
-     v-on:answer-changed = "answerChanged">
+      v-bind:boxes="boxes" >
       </OrderTable> 
               
      <Shipping ></Shipping>
@@ -25,8 +23,9 @@ export default {
   data() {
     return {
       customers: [], //array of customers in data
-      message: '',
-      name: ''
+      boxes: [],//array of boxes for a customer
+      //message: '',
+      //name: ''
     }
   },
   components: {
@@ -39,6 +38,8 @@ export default {
     this.updateCustomers() //call updateCustomers method
   },
   methods: {
+    
+
     newCustomerAdded(customer) {
       //call addCustomer method in CustomerService.js
      this.$customer_api.addCustomer(customer).then( customer => {
@@ -50,27 +51,18 @@ export default {
      })
     },
    
-
-    
    /* answerChanged(answer)
-    studentArrivedOrLeft(student) {
-      this.$student_api.updateStudent(student).then( () => {
-        this.message = student.present ? 'Welcome,' : 'Goodbye, '
-        this.name = student.name
-        //call method below
-        this.updateStudents()
-      })
-    },
-    studentDeleted(student) {
+    
+    boxDeleted(box) {
       this.$student_api.deleteStudent(student.id).then( () => {
         this.updateStudents()
       })
     },*/
-    updateCustomers() {
+    /*updateCustomers() {
       this.$customer_api.getAllCustomers().then( customers => {
         this.customers = customers //setting this.customer to C in the Vue model
       })
-    }
+    }*/
   }
 }
 </script>
