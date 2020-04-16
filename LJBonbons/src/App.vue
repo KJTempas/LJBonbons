@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <!--when box-added is called in OrderForm.vue, it sends data here and addBox method below should be called-->
+    <!--when box-added is called in OrderForm.vue, it sends data here and addBox method below is called-->
     <OrderForm v-on:box-added = "addBox"> </OrderForm>
     <OrderTable 
       v-bind:boxes="boxes" >
@@ -26,7 +26,7 @@ export default {
     return {
       customers: [], //array of customers in data
       boxes: [],//array of boxes for a customer
-      //message: '',
+      
       //name: ''
     }
   },
@@ -40,7 +40,7 @@ export default {
     this.updateCustomers() //call updateCustomers method
   },*/
   methods: {
-    addBox(newBox) {
+    addBox(newBox) { //called from v-on above
       console.log('new box in app.vue method',newBox)
       this.boxes.push(newBox)
     },

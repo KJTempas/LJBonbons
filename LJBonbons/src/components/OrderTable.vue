@@ -13,7 +13,7 @@
                 <h4> {{boxes.length}} boxes </h4>
                 <table class="table">
                     <tr><!-- the column headers-->
-                       <!-- <th>Box #</th>-->
+                        <th>Box #</th>
                         <th>Box Size</th>
                         <th>Coating Selected</th>
                         <th>$</th>
@@ -24,10 +24,10 @@
                     
                     <tr v-for="box in boxes">
                         <!--<td>{{box.number}}</td>-->
-            
-                        <td>{{box.boxSizeSelected}}</td>
-                        <td>{{box.coatingTypeSelected}}</td>
-                        <td>TBD</td>
+                        <td> box # will go here</td>
+                        <td>{{box.size}}</td>
+                        <td>{{box.coating}}</td>
+                        <td>$ will go here</td>
                     </tr>
                         <!--v-for="box in boxes"
                         v-bind:key="box.number" 

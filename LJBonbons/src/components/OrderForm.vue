@@ -6,7 +6,7 @@
         </div>
 
         <div class="card add-customer m-2 p-2">
-            <form class="order">
+            <div class="order">
               <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you or your loved ones</h4>
               <h5 class="card-title"> Each box contains coconut, rum, pina colada, lime, mango and passionfruit flavored bonbons</h5>
                 
@@ -44,10 +44,10 @@
                     <label>Dark Chocolate</label>
                 </div>
                 <!-- when button is clicked, go to addBox method-->
-              <button class="btn btn-primary" v-on:click="addBox">Add Box to Order</button>
+              <button class="btn btn-primary" v-on:click.prevent="addBox">Add Box to Order</button>
               
              
-            </form>
+            </div>
 
         </div>
 
@@ -80,6 +80,9 @@ export default {
             let newBox = { size: this.boxSizeSelected, coating: this.coatingTypeSelected}
             console.log('new box in OrderForm.vue' , newBox)//flashes on screen briefly
             this.$emit('box-added', newBox) //send new box object to parent to send to order table to display
+            //reset radio buttons
+            this.boxSizeSelected = ''
+            this.coatingTypeSelected = ''
         },
 
         finalizeOrder() {
@@ -106,7 +109,7 @@ export default {
         totalBoxes() {
             let total = 0
             this.boxes.forEach(function(box) {
-                total+= boxes.howLong
+                total += boxes.howLong
             })
             return total
             }
