@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <Header></Header>
-    <OrderForm v-on:customer-added="newCustomerAdded"></OrderForm>
+    <!--when box-added is called in OrderForm.vue, it sends data here and addBox method below should be called-->
+    <OrderForm v-on:box-added = "addBox"> </OrderForm>
     <OrderTable 
       v-bind:boxes="boxes" >
+
       </OrderTable> 
               
      <Shipping ></Shipping>
@@ -38,7 +40,8 @@ export default {
     this.updateCustomers() //call updateCustomers method
   },*/
   methods: {
-    addBox(box) {
+    addBox(newBox) {
+      console.log('new box in app.vue method',newBox)
       this.boxes.push(newBox)
     },
 

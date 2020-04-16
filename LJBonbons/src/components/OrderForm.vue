@@ -30,9 +30,9 @@
                 <div class="form-group">
                     <p>Choose your box size and coating<p>
                     <p>1. Select box size</p>
-                    <input type="radio" v-model="boxSizeSelected" v-bind:value="small" v-on:change='boxSizeSelected(choice)'>
+                    <input type="radio" v-model="boxSizeSelected" v-bind:value="small">
                     <label>Small- 12 bonbons for $24</label>
-                    <input type="radio" v-model="boxSizeSelected" v-bind:value="large" v-on:change='boxSizeSelected(choice)'>
+                    <input type="radio" v-model="boxSizeSelected" v-bind:value="large" >
                     <label>Large- 24 bonbons for $48</label>
                 </div>
 
@@ -76,8 +76,9 @@ export default {
     methods: {
         
         addBox() {
+           
             let newBox = { size: this.boxSizeSelected, coating: this.coatingTypeSelected}
-            console.log('new box in OrderForm.vue' , newBox)//not showig up
+            console.log('new box in OrderForm.vue' , newBox)//flashes on screen briefly
             this.$emit('box-added', newBox) //send new box object to parent to send to order table to display
         },
 

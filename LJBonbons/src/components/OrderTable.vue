@@ -13,7 +13,7 @@
                 <h4> {{boxes.length}} boxes </h4>
                 <table class="table">
                     <tr><!-- the column headers-->
-                        <th>Box #</th>
+                       <!-- <th>Box #</th>-->
                         <th>Box Size</th>
                         <th>Coating Selected</th>
                         <th>$</th>
@@ -21,9 +21,10 @@
                         <th button class="btn btn-success" id="finalize" v-on:click.prevent="addBox">Finalize Order</button></th>
                     </tr>
                     
-                    <OrderRow>
-                    <tr>
-                        <td>{{box.number}}</td>
+                    
+                    <tr v-for="box in boxes">
+                        <!--<td>{{box.number}}</td>-->
+            
                         <td>{{box.boxSizeSelected}}</td>
                         <td>{{box.coatingTypeSelected}}</td>
                         <td>TBD</td>
@@ -34,7 +35,7 @@
                         v-bind:coatingTypeSelected ="coatingTypeSelected"
                         v-bind:edit="editTable"
                         v-on:delete-box="boxDeleted">-->
-                    </OrderRow>
+                    
 
                 </table>
             </div>
