@@ -12,7 +12,7 @@
             <div id="order-table">
                 <h4> {{boxes.length}} boxes </h4>
                 <table class="table">
-                    <tr>
+                    <tr><!-- the column headers-->
                         <th>Box #</th>
                         <th>Box Size</th>
                         <th>Coating Selected</th>
@@ -21,13 +21,19 @@
                         <th button class="btn btn-success" id="finalize" v-on:click.prevent="addBox">Finalize Order</button></th>
                     </tr>
                     
-                    <OrderRow
-                        v-for="box in boxes"
+                    <OrderRow>
+                    <tr>
+                        <td>{{box.number}}</td>
+                        <td>{{box.boxSizeSelected}}</td>
+                        <td>{{box.coatingTypeSelected}}</td>
+                        <td>TBD</td>
+                    </tr>
+                        <!--v-for="box in boxes"
                         v-bind:key="box.number" 
-                        v-bind:sizeSelected="sizeSelected"
-                        v-bind:coatingSelected ="coatingSelected"
+                        v-bind:boxSizeSelected="boxSizeSelected"
+                        v-bind:coatingTypeSelected ="coatingTypeSelected"
                         v-bind:edit="editTable"
-                        v-on:delete-box="boxDeleted">
+                        v-on:delete-box="boxDeleted">-->
                     </OrderRow>
 
                 </table>
@@ -42,7 +48,7 @@ import OrderRow from '@/components/OrderRow.vue'
 
 export default { 
     name: 'OrderTable',
-    components: { OrderRow },
+    //components: { OrderRow },
     data() {
         return {
             editTable: false

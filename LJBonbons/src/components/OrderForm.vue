@@ -30,21 +30,21 @@
                 <div class="form-group">
                     <p>Choose your box size and coating<p>
                     <p>1. Select box size</p>
-                    <input type="radio" v-model="boxSizeChoice" v-bind:value="small" v-on:change='sizeSelected(choice)'>
+                    <input type="radio" v-model="boxSizeSelected" v-bind:value="small" v-on:change='boxSizeSelected(choice)'>
                     <label>Small- 12 bonbons for $24</label>
-                    <input type="radio" v-model="boxSizeChoice" v-bind:value="large" v-on:change='sizeSelected(choice)'>
+                    <input type="radio" v-model="boxSizeSelected" v-bind:value="large" v-on:change='boxSizeSelected(choice)'>
                     <label>Large- 24 bonbons for $48</label>
                 </div>
 
                 <div class="form-group">
                     <p>2. Select coating type </p>
-                    <input type="radio" v-model="coatingChoice" v-bind:value="milkChocolate" v-on:change='coatingSelected(choice)'>
+                    <input type="radio" v-model="coatingTypeSelected" v-bind:value="milkChocolate"><!-- v-on:change='coatingSelected(choice)'>-->
                     <label>Milk Chocolate</label>
-                    <input type="radio" v-model="coatingChoice" v-bind:value="darkChocolate" v-on:change='coatingSelected(choice)'>
+                    <input type="radio" v-model="coatingTypeSelected" v-bind:value="darkChocolate" ><!--v-on:change='coatingSelected(choice)'>-->
                     <label>Dark Chocolate</label>
                 </div>
-
-              <button class="btn btn-primary" v-on:click.prevent="addBox">Add Box to Order</button>
+                <!-- when button is clicked, go to addBox method-->
+              <button class="btn btn-primary" v-on:click="addBox">Add Box to Order</button>
               
              
             </form>
@@ -64,32 +64,39 @@ export default {
             lastName: '',
             email: '',
             errors: [],
-            sizeSelected: '',
-            coatingSelected: ''
+            //boxes: [],
+            boxSizeSelected: '',
+            coatingTypeSelected: '',
+            small: 'small',
+            large: 'large',
+            milkChocolate: 'milkChocolate',
+            darkChocolate: 'darkChocolate'
         }
     },
     methods: {
         
         addBox() {
-            let box = { size: this.sizeSelected, coating: this.coatingSelected}
-            this.$emit('box-added', box) //send new box object to parent to send to order table to display
+            let newBox = { size: this.boxSizeSelected, coating: this.coatingTypeSelected}
+            console.log('new box in OrderForm.vue' , newBox)//not showig up
+            this.$emit('box-added', newBox) //send new box object to parent to send to order table to display
         },
 
         finalizeOrder() {
             this.errors = []
             if (this.firstName && this.lastName && this.email) {
                 let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email}
-                //todo - write to database
-
-                // emit message to parent with new student
-                //this.$emit('customer-added', customer)
-                //clear data fields
-                this.firstName= ''
-                this.lastName= ''
-                this.email= ''
+                // emit message to parent with new customer
+                this.$emit('customer-added', customer)
             } else {
                 this.errors.push('Name and email are required.')
             }
+            //for box in boxes
+            //clear data fields
+                this.firstName= ''
+                this.lastName= ''
+                this.email= ''
+                //clear radio buttons
+
             //todo - write boxes to database
         },
 

@@ -34,11 +34,13 @@ export default {
     OrderTable,
     Shipping
   },
-  mounted() {
+  /*mounted() {
     this.updateCustomers() //call updateCustomers method
-  },
+  },*/
   methods: {
-    
+    addBox(box) {
+      this.boxes.push(newBox)
+    },
 
     newCustomerAdded(customer) {
       //call addCustomer method in CustomerService.js
