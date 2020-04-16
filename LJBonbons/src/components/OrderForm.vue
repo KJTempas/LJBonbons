@@ -5,7 +5,7 @@
             <li v-for="error in errors">{{ error }}</li>
         </div>
 
-        <div class="card add-student m-2 p-2">
+        <div class="card add-customer m-2 p-2">
             <form class="order">
               <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you or your loved ones</h4>
               <h5 class="card-title"> Each box contains coconut, rum, pina colada, lime, mango and passionfruit flavored bonbons</h5>
@@ -25,24 +25,26 @@
                 <input id="email" class="form-control" v-model.trim="email">
               </div>
 
+                <button class="btn btn-success" v-on:click.prevent="addBox">Add Customer</button>
+
                 <div class="form-group">
                     <p>Choose your box size and coating<p>
                     <p>1. Select box size</p>
-                    <input type="radio" v-model="choice" v-bind:value="small" v-on:change='answerChanged(choice)'>
-                    <label>Small-12 bonbons for $24</label>
-                    <input type="radio" v-model="choice" v-bind:value="large" v-on:change='answerChanged(choice)'>
-                    <label>Large-24 bonbons for $48</label>
+                    <input type="radio" v-model="boxSizeChoice" v-bind:value="small" v-on:change='sizeSelected(choice)'>
+                    <label>Small- 12 bonbons for $24</label>
+                    <input type="radio" v-model="boxSizeChoice" v-bind:value="large" v-on:change='sizeSelected(choice)'>
+                    <label>Large- 24 bonbons for $48</label>
                 </div>
 
                 <div class="form-group">
                     <p>2. Select coating type </p>
-                    <input type="radio" v-model="choice" v-bind:value="milkChocolate" v-on:change='coatingSelected(id, choice)'>
+                    <input type="radio" v-model="coatingChoice" v-bind:value="milkChocolate" v-on:change='coatingSelected(choice)'>
                     <label>Milk Chocolate</label>
-                    <input type="radio" v-model="choice" v-bind:value="darkChocolate" v-on:change='coatingSelected(id, choice)'>
+                    <input type="radio" v-model="coatingChoice" v-bind:value="darkChocolate" v-on:change='coatingSelected(choice)'>
                     <label>Dark Chocolate</label>
                 </div>
 
-              <button class="btn btn-primary" v-on:click.prevent="addBox">Add to Order</button>
+              <button class="btn btn-primary" v-on:click.prevent="addBox">Add Box to Order</button>
             </form>
 
         </div>
@@ -60,8 +62,8 @@ export default {
             lastName: '',
             email: '',
             errors: [],
-            boxSize: '',
-            coating: ''
+            boxSizeChoice: '',
+            coatingChoice: ''
         }
     },
     methods: {
@@ -79,7 +81,7 @@ export default {
             }
         },
         addBox() {
-            let box = { size: this.boxSize, coating: this.coating}
+            let box = { size: this.boxSizeChoice, coating: this.coatingChoice}
         }
 
     }
