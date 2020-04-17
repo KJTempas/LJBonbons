@@ -3,7 +3,7 @@
     <Header></Header>
     <!--when box-added is called in OrderForm.vue, it sends data here and addBox method below is called-->
     <OrderForm v-on:box-added = "addBox"> </OrderForm>
-    <button class="btn btn-success" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>
+    <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>
     <OrderTable 
       v-bind:boxes="boxes" 
       v-on:finalize-order = "finalizeOrder"

@@ -25,7 +25,7 @@
                 <input id="email" class="form-control" v-model.trim="email">
               </div>
 
-                
+                <button class="btn btn-success" v-on:click.prevent="addCustomer">Add Customer</button>
 
                 <div class="form-group">
                     <p>Choose your box size and coating<p>
@@ -105,10 +105,10 @@ export default {
                 this.errors.push('Name and email are required.')
             }
             //for box in boxes
-            //clear data fields
-                this.firstName= ''
-                this.lastName= ''
-                this.email= ''
+            //clear data fields- don't do this until order is finalized
+                //this.firstName= ''
+               // this.lastName= ''
+               // this.email= ''
                 //clear radio buttons
         }
         
