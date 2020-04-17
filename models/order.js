@@ -1,7 +1,7 @@
 'use strict'
 module.exports = (sequelize, DataTypes) =>{
 
-const Box = sequelize.define('Box', {
+let Box = sequelize.define('Box', {
     boxID: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

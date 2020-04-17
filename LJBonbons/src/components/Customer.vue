@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="customer">
         <div class="alert alert-danger" v-show="errors && errors.length > 0">
             <li v-for="error in errors">{{ error }}</li>
         </div>
@@ -19,7 +19,7 @@
                 <input id="email" class="form-control" v-model.trim="email">
               </div>
              
-             <button class="btn btn-success" v-on:click.prevent="addCustomer">Add Customer</button>
+             <button class="btn btn-primary" v-on:click.prevent="addCustomer">Add Customer</button>
     </div>
 </template>
 
@@ -35,12 +35,13 @@ export default {
         }
     },
     methods: {
-        makeCustomer() {
+        addCustomer() {
             this.errors = []
             if (this.firstName && this.lastName && this.email) {
                 let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email}
+                console.log(customer) //working this far
                 // emit message to parent(App.vue) with new customer object
-                this.$emit('customer-added', customer)
+                this.$emit('add-customer', customer)
             } else {
                 this.errors.push('Name and email are required.')
             }
@@ -56,3 +57,7 @@ export default {
 </script>
 
 <style>
+.customer {
+    background-color: rgb(245, 245, 119);
+}
+</style>

@@ -10,18 +10,16 @@
             </div>
 
             <div id="order-table">
-                <h4> {{boxes.length}} boxes </h4>
+                <!--<h4> {{boxes.length}} boxes </h4>-->
                 <table class="table">
                     <tr><!-- the column headers-->
-                        <th>Box #</th>
+                        <!--<th>Box #</th>-->
                         <th>Box Size</th>
                         <th>Coating Selected</th>
                         <th>$</th>
                         <th v-show="editTable">Delete</th>
                         
                     </tr>
-                    
-                    
                    <!-- <tr v-for="box in boxes">
                         <td> box # will go here</td>
                         <td>{{box.size}}</td>

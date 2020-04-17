@@ -3,13 +3,14 @@
     <Header></Header>
     <!--when box-added is called in OrderForm.vue, it sends data here and addBox method below is called-->
     <OrderForm v-on:box-added = "addBox"> </OrderForm>
-    <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>
+    
     <OrderTable 
       v-bind:boxes="boxes" 
       v-on:finalize-order = "finalizeOrder"
       v-on:delete-box="boxDeleted">
       </OrderTable> 
-      <Customer> </Customer>        
+      <Customer> </Customer> 
+      <!--<button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>  -->     
      <Shipping ></Shipping>
 
   </div>
@@ -29,7 +30,6 @@ export default {
     return {
       customers: [], //array of customers in data
       boxes: [],//array of boxes for a customer
-      
       
     }
   },
@@ -54,11 +54,12 @@ export default {
           }
         },
 
-    newCustomerAdded(customer) {
+    addCustomer(customer) {
       //call addCustomer method in CustomerService.js
      this.$customer_api.addCustomer(customer).then( customer => {
        //after req is complete, call updateCustomers to update array
        this.updateCustomers()
+       console.log('in App.vue - a customer', customer)
      }).catch(err => {
        let msg = err.response.data.join(', ')
        alert('Error adding customer.\n' + msg)

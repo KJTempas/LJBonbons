@@ -1,7 +1,6 @@
 <template>
     <div>
-    
-    
+
         <div class="card add-customer m-2 p-2">
             <div class="order">
               <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you or your loved ones</h4>
@@ -25,6 +24,7 @@
                     <label>Dark Chocolate</label>
                 </div>
                 <!-- when button is clicked, go to addBox method-->
+                <button class="btn btn-success" id="addBox" v-on:click="addBox">Add box to order</button>
              </div> 
         </div>
 
@@ -37,7 +37,6 @@ export default {
     name: 'OrderForm',
     data() {
         return {
-            
             //boxes: [],
             boxSizeSelected: '',
             coatingTypeSelected: '',
@@ -59,7 +58,7 @@ export default {
             this.coatingTypeSelected = ''
         },
 
-        finalizeOrder() {
+        /*finalizeOrder() {
             customer = makeCustomer()  //call method below
             //combine customer + boxes together in order
             //need to get boxes from parent(App.vue) - they are in props
@@ -67,7 +66,7 @@ export default {
             //emit back to parent (App.vue)
             //this.$emit('order')
             //todo - write boxes to database
-        },
+        },*/
 
     } ,
     computed: {

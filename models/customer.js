@@ -1,7 +1,7 @@
-'use strict'
+
 module.exports = (sequelize, DataTypes) =>{
     
-    const Customer = sequelize.define('Customer', {
+    let Customer = sequelize.define('Customer', {
         customerId: {
             allowNull: false,
             autoIncrement: tyrue,
