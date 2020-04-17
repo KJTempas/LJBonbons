@@ -18,7 +18,7 @@
                         <th>Coating Selected</th>
                         <th>$</th>
                         <th v-show="editTable">Delete</th>
-                        <th button class="btn btn-success" id="finalize" v-on:click.prevent="addBox">Finalize Order</button></th>
+                        
                     </tr>
                     
                     
@@ -31,12 +31,10 @@
                     <OrderRow
                      v-for="box in boxes"
                     v-bind:key="box.id"
-                     v-bind:size = "size"
-                     v-bind:coating = "coating"
-
+                    v-bind:box="box"
+                    
                      v-on:delete-box="boxDeleted">
                      </OrderRow>
-                    
 
                 </table>
             </div>
@@ -60,10 +58,11 @@ export default {
         boxes: Array
     },
     methods: {
-        
         boxDeleted(box) {
             this.$emit('delete-box', box)
-        }
+        },
+          
+
     }
 }
 </script>

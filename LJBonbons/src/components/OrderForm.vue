@@ -86,10 +86,20 @@ export default {
         },
 
         finalizeOrder() {
+            customer = makeCustomer()  //call method below
+            //combine customer + boxes together in order
+            //need to get boxes from parent(App.vue) - they are in props
+            let order = { customer: this.customer, boxes: this.boxes}
+            //emit back to parent (App.vue)
+            //this.$emit('order')
+            //todo - write boxes to database
+        },
+
+        makeCustomer() {
             this.errors = []
             if (this.firstName && this.lastName && this.email) {
                 let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email}
-                // emit message to parent with new customer
+                // emit message to parent(App.vue) with new customer object
                 this.$emit('customer-added', customer)
             } else {
                 this.errors.push('Name and email are required.')
@@ -100,9 +110,8 @@ export default {
                 this.lastName= ''
                 this.email= ''
                 //clear radio buttons
-
-            //todo - write boxes to database
-        },
+        }
+        
 
     } ,
     computed: {
