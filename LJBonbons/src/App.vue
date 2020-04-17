@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import Header from '/components/Header.vue'
-import Customer from '/components/Customer.vue'
+import Header from './components/Header.vue'
+import Customer from './components/Customer.vue'
 import OrderForm from './components/OrderForm.vue'
 import OrderTable from './components/OrderTable.vue'
 import Shipping from './components/Shipping.vue'
