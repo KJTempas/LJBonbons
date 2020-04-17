@@ -9,14 +9,15 @@
       v-on:finalize-order = "finalizeOrder"
       v-on:delete-box="boxDeleted">
       </OrderTable> 
-              
+      <Customer> </Customer>        
      <Shipping ></Shipping>
 
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
+import Header from '/components/Header'
+import Customer from '/components/Customer.vue'
 import OrderForm from './components/OrderForm.vue'
 import OrderTable from './components/OrderTable.vue'
 import Shipping from './components/Shipping.vue'
@@ -29,11 +30,12 @@ export default {
       customers: [], //array of customers in data
       boxes: [],//array of boxes for a customer
       
-      //name: ''
+      
     }
   },
   components: {
     Header,
+    Customer,
     OrderForm,
     OrderTable,
     Shipping
