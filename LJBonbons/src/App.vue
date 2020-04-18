@@ -6,11 +6,11 @@
     
     <OrderTable 
       v-bind:boxes="boxes" 
-      v-on:finalize-order = "finalizeOrder"
       v-on:delete-box="boxDeleted">
       </OrderTable> 
+
       <Customer> </Customer> 
-      <!--<button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>  -->     
+      <!--<button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button> -->     
      <Shipping ></Shipping>
 
   </div>
@@ -30,6 +30,7 @@ export default {
     return {
       customers: [], //array of customers in data
       boxes: [],//array of boxes for a customer
+
       
     }
   },
@@ -50,7 +51,7 @@ export default {
     },
 
     boxDeleted(box) {
-          this.boxes = this.boxes.filter(function(b) {return b !=boxes})
+          this.boxes = this.boxes.filter(function(s) {return s !=boxes})
           }
         },
 
@@ -65,7 +66,11 @@ export default {
        alert('Error adding customer.\n' + msg)
      })
     },
-  
+
+    finalizeOrder(customer, order) {
+      let finalOrder = { customer: this.customer, boxesOrdered: this.boxes}
+      console.log('final order is ', finalOrder)
+    }
   
   }
 

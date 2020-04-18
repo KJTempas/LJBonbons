@@ -4,10 +4,10 @@
        <!--but that element can contain many children   -->
   
     <tr >
-        
         <!--<td>{{box.id}}-->
         <td>{{ box.size }}</td>
         <td>{{ box.coating }}</td>
+        <td> </td>
        
         <td v-show="edit">
             <img class="delete-icon" v-on:click="deleteBox(box)" src="@/assets/delete.png">

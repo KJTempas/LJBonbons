@@ -27,11 +27,11 @@
                         <td>$ will go here</td>
                     </tr>-->
                     <OrderRow
-                     v-for="box in boxes"
+                    v-for="box in boxes"
                     v-bind:key="box.id"
                     v-bind:box="box"
-                    
-                     v-on:delete-box="boxDeleted">
+                    v-bind:edit="editTable"
+                    v-on:delete-box="boxDeleted">
                      </OrderRow>
 
                 </table>
