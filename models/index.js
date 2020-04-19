@@ -14,7 +14,8 @@ if (config.use_env_variable) {
 }
 
 let model = sequelize['import']('./customer.js')
-let model = sequelize['import']('./order.js')
+let model = sequelize['import']('./box.js')
+let model = sequelize['import']('./orders.js')
 db[model.name] = model
 
 db.sequelize = sequelize

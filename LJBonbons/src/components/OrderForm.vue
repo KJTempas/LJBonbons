@@ -58,16 +58,6 @@ export default {
             this.coatingTypeSelected = ''
         },
 
-        /*finalizeOrder() {
-            customer = makeCustomer()  //call method below
-            //combine customer + boxes together in order
-            //need to get boxes from parent(App.vue) - they are in props
-            let order = { customer: this.customer, boxes: this.boxes}
-            //emit back to parent (App.vue)
-            //this.$emit('order')
-            //todo - write boxes to database
-        },*/
-
     } ,
     computed: {
         totalBoxes() {

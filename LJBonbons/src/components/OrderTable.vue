@@ -49,7 +49,8 @@ export default {
     components: { OrderRow },
     data() {
         return {
-            editTable: false
+            editTable: false,
+            
         }
     },
     props: {
