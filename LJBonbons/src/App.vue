@@ -10,7 +10,7 @@
       </OrderTable> 
 
       <Customer> </Customer> 
-      <button class="btn btn-warning" id="finalize" v-on:click="finalize-order">Finalize Order</button>      
+      <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>      
      <Shipping ></Shipping>
 
   </div>
@@ -28,9 +28,9 @@ export default {
   name: 'app',
   data() {
     return {
-      customers: [], //array of customers in data
+      customer: {}, //array of customers in data
       boxes: [],//array of boxes for a customer
-      //orders:[]
+      orders: []
 
     }
   },
@@ -41,9 +41,7 @@ export default {
     OrderTable,
     Shipping
   },
-  props: {
-    orders: Array
-  },
+  
   /*mounted() {
     this.updateCustomers() //call updateCustomers method
   },*/
@@ -54,9 +52,9 @@ export default {
     },
 
     boxDeleted(box) {
-          this.boxes = this.boxes.filter(function(b) {return b !=boxes})
-          }
-        },
+          this.boxes = this.boxes.filter(function(b) {return b !=box})
+          },
+        
 
     addCustomer(customer) {
       //call addCustomer method in CustomerService.js
@@ -70,19 +68,19 @@ export default {
      })
     },
 
-    /*finalizeOrder(customer, boxes) {
+    finalizeOrder(customer, boxes) {
     //combine customer + boxes together in order
       let finalOrder = { customer: this.customer, boxesOrdered: this.boxes}
       console.log('final order is ', finalOrder)
       this.orders.push(finalOrder)  //add this final order to the array of final orders
-    },*/
+    },/*
     computed: {
       finalizeOrder(customer, boxes) {
     //combine customer + boxes together in order
       let order = { customer: this.customer, boxesOrdered: this.boxes}
       console.log('final order is ', finalOrder)
       this.orders.push(order)  //add this final order to the array of final orders
-    }
+    }*/
       
     }
 

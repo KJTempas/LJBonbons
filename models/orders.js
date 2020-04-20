@@ -7,11 +7,14 @@ let Order = sequelize.define('Order', {
         primaryKey: true
     },
     customerID: {
+        type: DataTypes.INTEGER,
 
     },
     boxNumber:{
+        type: DataTypes.INTEGER
+    }
 
-    },//an array
+    ,//an array
 
 });
 Order.associate = function(models) {

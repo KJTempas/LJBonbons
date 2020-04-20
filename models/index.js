@@ -13,10 +13,13 @@ if (config.use_env_variable) {
     sequelize = new Sequelize(config)
 }
 
-let model = sequelize['import']('./customer.js')
-let model = sequelize['import']('./box.js')
-let model = sequelize['import']('./orders.js')
-db[model.name] = model
+let customerModel = sequelize['import']('./customer.js')
+let boxModel = sequelize['import']('./box.js')
+let ordersModel = sequelize['import']('./orders.js')
+
+db[customerModel.name] = customerModel
+db[boxModel.name] = boxModel
+db[ordersModel] = ordersModel
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize

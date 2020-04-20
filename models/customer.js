@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) =>{
     let Customer = sequelize.define('Customer', {
         customerId: {
             allowNull: false,
-            autoIncrement: tyrue,
+            autoIncrement: true,
             primaryKey: true,
             type: sequelize.INTEGER
         },
