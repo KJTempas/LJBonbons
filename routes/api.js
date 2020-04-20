@@ -27,6 +27,6 @@ router.post('/orders', function(req, res, next) {
         return res.status(201).send('ok')
     
     })
-}
+})
 
 module.exports = router
