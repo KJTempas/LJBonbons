@@ -16,14 +16,29 @@ router.post('/customers', function(req, res, next) {
         console.log(err)
         if(err instanceof Sequelize.ValidationError) {
             let message = err.errors.map( (e) => e.message)
-            return res.status(400).json(messages)
+            return res.status(400).json(message)
         }
         return next (err)
     })
 })
+//a route to post a new box
+router.post('/box', function(req, res, next) {
+    Box.create(req.body).then( (data) =>{
+        return res.status(201).send('ok')
+    
+    })
+})
 
-router.post('/orders', function(req, res, next) {
-    Orders.create(req.body).then( (data) =>{
+//route to create a new order
+router.post('/order', function(req, res, next) {
+    Order.create(req.body).then( (data) =>{
+        return res.status(201).send('ok')
+    
+    })
+})
+//route to creat a new orderItem
+router.post('/orerItem', function(req, res, next) {
+    orderItem.create(req.body).then( (data) =>{
         return res.status(201).send('ok')
     
     })

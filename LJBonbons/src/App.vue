@@ -42,9 +42,6 @@ export default {
     Shipping
   },
   
-  /*mounted() {
-    this.updateCustomers() //call updateCustomers method
-  },*/
   methods: {
     addBox(newBox) { //called from v-on above
       console.log('new box in app.vue method',newBox)
@@ -55,7 +52,6 @@ export default {
           this.boxes = this.boxes.filter(function(b) {return b !=box})
           },
         
-
     addCustomer(customer) {
       //call addCustomer method in CustomerService.js
      this.$customer_api.addCustomer(customer).then( customer => {
@@ -73,14 +69,7 @@ export default {
       let finalOrder = { customer: this.customer, boxesOrdered: this.boxes}
       console.log('final order is ', finalOrder)
       this.orders.push(finalOrder)  //add this final order to the array of final orders
-    },/*
-    computed: {
-      finalizeOrder(customer, boxes) {
-    //combine customer + boxes together in order
-      let order = { customer: this.customer, boxesOrdered: this.boxes}
-      console.log('final order is ', finalOrder)
-      this.orders.push(order)  //add this final order to the array of final orders
-    }*/
+    },
       
     }
 

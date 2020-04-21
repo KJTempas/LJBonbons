@@ -12,14 +12,16 @@ if (config.use_env_variable) {
 }else {
     sequelize = new Sequelize(config)
 }
-
+//the four tables in the database with links to files with their mapping
 let customerModel = sequelize['import']('./customer.js')
 let boxModel = sequelize['import']('./box.js')
-let ordersModel = sequelize['import']('./orders.js')
+let orderModel = sequelize['import']('./orders.js')
+let orderItemModel = sequelize['import']('./orderItem.js')
 
 db[customerModel.name] = customerModel
 db[boxModel.name] = boxModel
-db[ordersModel] = ordersModel
+db[orderModel] = orderModel
+db[orderItemModel]=orderItemModel
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
