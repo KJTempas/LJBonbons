@@ -49,6 +49,7 @@ export default {
     },
 
     boxDeleted(box) {
+        //this filters the boxes array and returns all boxes that are not equal to this (box), so removes the box from the array
           this.boxes = this.boxes.filter(function(b) {return b !=box})
           },
         
@@ -56,7 +57,7 @@ export default {
       //call addCustomer method in CustomerService.js
      this.$customer_api.addCustomer(customer).then( customer => {
        //after req is complete, call updateCustomers to update array
-       this.updateCustomers()
+       //this.updateCustomers()
        console.log('in App.vue - a customer', customer)
      }).catch(err => {
        let msg = err.response.data.join(', ')
@@ -69,6 +70,24 @@ export default {
       let finalOrder = { customer: this.customer, boxesOrdered: this.boxes}
       console.log('final order is ', finalOrder)
       this.orders.push(finalOrder)  //add this final order to the array of final orders
+      for (box in boxes){ //write boxes to the box table of database
+          this.$box.api.addBox(box).then( box => {
+
+          }).catch(err => {
+            let msg = err.response.data.join(', ')
+            alert('Error adding box.\n' + msg)
+          })
+      }
+      this.$order.api.addOrder(orders).then( order => {//write order to orders table of dbase
+
+      }).catch(err => {
+            let msg = err.response.data.join(', ')
+            alert('Error adding order.\n' + msg)
+          })
+      
+
+      
+
     },
       
     }
