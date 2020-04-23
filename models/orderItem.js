@@ -6,7 +6,8 @@ let OrderItem = sequelize.define('OrderItem', {
         autoIncrement: true,
         primaryKey: true
     },
-    boxID:{
+    orderID:{
+        type: DataTypes.INTEGER
     },
 });
 

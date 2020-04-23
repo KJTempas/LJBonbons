@@ -67,31 +67,35 @@ export default {
 
     finalizeOrder(customer, boxes) {
     //combine customer + boxes together in order
+    //customer is already written to dbase on line 58; should it be here?
       let finalOrder = { customer: this.customer, boxesOrdered: this.boxes}
       console.log('final order is ', finalOrder)
       this.orders.push(finalOrder)  //add this final order to the array of final orders
-      for (box in boxes){ //write boxes to the box table of database
+      for (box in boxes){ 
+      //write boxes to the box table of database  
           this.$box.api.addBox(box).then( box => {
-
           }).catch(err => {
             let msg = err.response.data.join(', ')
             alert('Error adding box.\n' + msg)
           })
       }
-      this.$order.api.addOrder(orders).then( order => {//write order to orders table of dbase
+      let order = { datePlaced: NOW, customerID: this.customerID}
+      //write order to order table in dbase
+      this.$order.api.addOrder(order).then( order => {//write order to orders table of dbase
 
       }).catch(err => {
             let msg = err.response.data.join(', ')
             alert('Error adding order.\n' + msg)
           })
-      
-
+          //write order Item to orderItem table in dbase
+          let OrderItem = { orderID: this.orderID}
+          //but there may be several order IDs - need an array of orderIDs
+       this.$orderItem.api.addOrderItem(orderItem)   
       
 
     },
-      
+    
     }
-
   }
 
 </script>

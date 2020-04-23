@@ -4,12 +4,14 @@ let db = require('../models')
 //let Customer = require('../models').Customer
 //let Order = require('../models').Order
 let Customer = db.Customer
-let Orders = db.Orders
+let Order = db.Order
+let Box = db.Box
+let OrderItem = db.OrderItem
 
 let router = express.Router()
 
 //create a new customer w a post route to /customers; return status 201/ok if works
-router.post('/customers', function(req, res, next) {
+router.post('/customer', function(req, res, next) {
     Customer.create(req.body).then( (data) => {
         return res.status(201).send('ok')
     }).catch( err => {
@@ -36,9 +38,9 @@ router.post('/order', function(req, res, next) {
     
     })
 })
-//route to creat a new orderItem
-router.post('/orerItem', function(req, res, next) {
-    orderItem.create(req.body).then( (data) =>{
+//route to createnpm  a new orderItem
+router.post('/orderItem', function(req, res, next) {
+    OrderItem.create(req.body).then( (data) =>{
         return res.status(201).send('ok')
     
     })
