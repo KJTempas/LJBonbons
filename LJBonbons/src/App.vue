@@ -88,10 +88,14 @@ export default {
             alert('Error adding order.\n' + msg)
           })
           //write order Item to orderItem table in dbase
-          let OrderItem = { orderID: this.orderID}
+      let OrderItem = { orderID: this.orderID}
           //but there may be several order IDs - need an array of orderIDs
        this.$orderItem.api.addOrderItem(orderItem)   
       
+      //clear input fields for customer - can this be done here?
+     // this.firstName= ''
+      //this.lastName= ''
+      //this.email= ''
 
     },
     
