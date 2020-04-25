@@ -79,9 +79,9 @@ export default {
             alert('Error adding box.\n' + msg)
           })
       }
-      let order = { datePlaced: NOW, customerID: this.customerID}
+      let order = { customerID: this.customerID}
       //write order to order table in dbase
-      this.$order.api.addOrder(order).then( order => {//write order to orders table of dbase
+      this.$order.api.addOrder(order).then( order => {//write order to order table of dbase
 
       }).catch(err => {
             let msg = err.response.data.join(', ')

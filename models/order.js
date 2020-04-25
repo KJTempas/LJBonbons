@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) =>{
         datePlaced: {
             type: DataTypes.DATEONLY,  
             allowNull: false,
-            defaultValue: NOW
+            defaultValue: new Date()
         },
-        customerID: {
-            type: DataTypes.INTEGER
-        }
+        //customerID: {
+            //type: DataTypes.INTEGER
+        //}
     });
     Order.associate = function(models) {
         Order.belongsTo(models.Customer, {

@@ -38,7 +38,7 @@ router.post('/order', function(req, res, next) {
     
     })
 })
-//route to createnpm  a new orderItem
+//route to create  a new orderItem
 router.post('/orderItem', function(req, res, next) {
     OrderItem.create(req.body).then( (data) =>{
         return res.status(201).send('ok')

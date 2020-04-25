@@ -6,8 +6,11 @@
               <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you or your loved ones</h4>
               <h5 class="card-title"> Each box contains coconut, rum, pina colada, lime, mango and passionfruit flavored bonbons</h5>
              
+                <div id="boxOptions-container">
+                <!--box options will go here-->
+                </div>
 
-                <div class="form-group">
+                <!--<div class="form-group">
                     <p>Choose your box size and coating<p>
                     <p>1. Select box size</p>
                     <input type="radio" v-model="boxSizeSelected" v-bind:value="small">
@@ -18,12 +21,12 @@
 
                 <div class="form-group">
                     <p>2. Select coating type </p>
-                    <input type="radio" v-model="coatingTypeSelected" v-bind:value="milkChocolate"><!-- v-on:change='coatingSelected(choice)'>-->
+                    <input type="radio" v-model="coatingTypeSelected" v-bind:value="milkChocolate">
                     <label>Milk Chocolate</label>
-                    <input type="radio" v-model="coatingTypeSelected" v-bind:value="darkChocolate" ><!--v-on:change='coatingSelected(choice)'>-->
+                    <input type="radio" v-model="coatingTypeSelected" v-bind:value="darkChocolate" >
                     <label>Dark Chocolate</label>
                 </div>
-                <!-- when button is clicked, go to addBox method-->
+                 when button is clicked, go to addBox method-->
                 <button class="btn btn-success" id="addBox" v-on:click="addBox">Add box to order</button>
              </div> 
         </div>
@@ -57,6 +60,34 @@ export default {
             this.boxSizeSelected = ''
             this.coatingTypeSelected = ''
         },
+        buildBoxOptions(boxSize, coating) {
+            let boxOptionsUrl = "http://localhost:3000/boxOptions"
+            fetch(boxOptionsURL)  //go to the url and fetch the box options
+                .then(resp => resp.json()) //convert objects to json
+                .then(boxOptions => {
+
+                    let boxOptionContainer = document.querySelector('#boxOption-container')
+                    boxOptions.forEach(boxOption => { //loop through all box options in server.json
+                        let singleBoxOption = document.createElement('div')
+                        singleBoxOption.classList.add('boxOption')
+
+                    }
+                    
+                })
+        
+
+            let boxOption = document.createElement('div')
+            let optionLabel = document.createElement('label')
+            optionLabel.innerHTML = (boxSize + coating)
+
+            let checkBox = document.createElement("INPUT")
+            checkBox.setAttribute("type", "checkbox");
+            checkBox.setAttribute("class", "checkbox")
+            checkBox.setAttribute("value", id)
+
+            boxOption.appendChild(checkbox)
+            boxOption.appendChild(optionLabel)
+        }
 
     } ,
     computed: {

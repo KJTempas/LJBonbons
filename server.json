@@ -1,0 +1,26 @@
+{
+"boxOptions": [ 
+    {
+        "id": 1,
+        "boxSize": "small",
+        "coating": "milkChocolate"
+    },
+    {
+        "id": 2,
+        "boxSize": "small",
+        "coating": "darkChocolate"
+    }, 
+    {
+        "id": 3,
+            "boxSize": "large",
+            "coating": "milkChocolate"
+    },
+    {
+        "id": 4,
+            "boxSize": "large",
+            "coating": "darlChocolate"
+    }
+    
+]
+
+}
