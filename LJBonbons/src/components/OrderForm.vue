@@ -6,11 +6,11 @@
               <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you or your loved ones</h4>
               <h5 class="card-title"> Each box contains coconut, rum, pina colada, lime, mango and passionfruit flavored bonbons</h5>
              
-                <div id="boxOptions-container">
+               <!-- <div id="boxOptions-container">-->
                 <!--box options will go here-->
-                </div>
+                
 
-                <!--<div class="form-group">
+                <div class="form-group">
                     <p>Choose your box size and coating<p>
                     <p>1. Select box size</p>
                     <input type="radio" v-model="boxSizeSelected" v-bind:value="small">
