@@ -5,7 +5,7 @@ let db = require('../models')
 //let Order = require('../models').Order
 let Customer = db.Customer
 let Order = db.Order
-let Box = db.Box
+let Boxes = db.Boxes
 let OrderItem = db.OrderItem
 
 let router = express.Router()
@@ -24,11 +24,19 @@ router.post('/customer', function(req, res, next) {
     })
 })
 //a route to post a new box
-router.post('/box', function(req, res, next) {
+router.post('/boxes', function(req, res, next) {
     Box.create(req.body).then( (data) =>{
         return res.status(201).send('ok')
     
     })
+})
+
+router.get('/boxes', function(req, res, next) {
+    Boxes.findAll({order: ['id']})
+    .then( boxes => {
+        return res.json(boxes)
+    })
+    .catch( err => next.err() )
 })
 
 //route to create a new order

@@ -1,7 +1,7 @@
 import axios from 'axios'
 //axios will make requests from the Vue client to the Express API server
 const base_url = '/api/customer'
-let box_url = '/api/box'
+let box_url = '/api/boxes'
 let order_url ='/api/order'
 let orderItem_url = '/api/orderItem'
 export default {
@@ -12,6 +12,11 @@ export default {
         })
     },
 
+    getBoxes() {
+        return axios.get('/api/boxes/').then (response => {
+            return response.data
+        })
+    },
     addBox(box) {
         return axios.post(box_url, box).then(response => {
             return response.data

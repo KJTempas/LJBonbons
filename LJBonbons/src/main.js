@@ -13,7 +13,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 //Vue.config.productionTip = false
 //adding StudentServices to the Vue class prototype, so is accessible
-Vue.prototype.$student_api = CustomerAPIService
+Vue.prototype.$customerService = CustomerAPIService
 
 new Vue({
   render: h => h(App),
