@@ -26,6 +26,8 @@
                     <input type="radio" v-model="coatingTypeSelected" v-bind:value="darkChocolate" >
                     <label>Dark Chocolate</label>
                 </div>
+
+
                  when button is clicked, go to addBox method-->
                 <button class="btn btn-success" id="addBox" v-on:click="addBox">Add box to order</button>
              </div> 
@@ -49,8 +51,12 @@ export default {
             darkChocolate: 'darkChocolate'
         }
     },
+    props: {
+        id: Number,
+        boxSize: String,
+        coating: String
+    },
     methods: {
-        
         addBox() {
            //construct box object
             let newBox = { size: this.boxSizeSelected, coating: this.coatingTypeSelected}
@@ -60,6 +66,7 @@ export default {
             this.boxSizeSelected = ''
             this.coatingTypeSelected = ''
         },
+
         buildBoxOptions(boxSize, coating) {
             let boxOptionsUrl = "http://localhost:3000/boxOptions"
             fetch(boxOptionsURL)  //go to the url and fetch the box options
@@ -70,27 +77,22 @@ export default {
                     boxOptions.forEach(boxOption => { //loop through all box options in server.json
                         let singleBoxOption = document.createElement('div')
                         singleBoxOption.classList.add('boxOption')
-
-                    }
-                    
-                })
         
-
+/*
             let boxOption = document.createElement('div')
             let optionLabel = document.createElement('label')
             optionLabel.innerHTML = (boxSize + coating)
-
             let checkBox = document.createElement("INPUT")
             checkBox.setAttribute("type", "checkbox");
             checkBox.setAttribute("class", "checkbox")
             checkBox.setAttribute("value", id)
-
             boxOption.appendChild(checkbox)
             boxOption.appendChild(optionLabel)
-        }
+        }*/
 
-    } ,
-    computed: {
+        }),
+    
+   /* computed; {
         totalBoxes() {
             let total = 0
             this.boxes.forEach(function(box) {
@@ -99,8 +101,10 @@ export default {
             return total
             }
             
-        }
+        }*/
+        
     }
+    
 
 </script>
 
