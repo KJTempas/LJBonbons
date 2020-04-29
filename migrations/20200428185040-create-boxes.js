@@ -8,8 +8,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      boxID: {
-        type: Sequelize.INTEGER
+      boxDescription:{
+        type: Sequelize.STRING
       },
       boxSize: {
         type: Sequelize.STRING

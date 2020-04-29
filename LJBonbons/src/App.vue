@@ -5,6 +5,7 @@
     <OrderForm 
       v-for="box in boxes"
       v-bind:key="box.id"
+      v-bind:boxDescription = "box.boxDescription"
       v-bind:id="box.id"
       v-bind:boxSize="box.boxSize"
       v-bind:coating="box.coating"
