@@ -4,9 +4,9 @@ let db = require('../models')
 //let Customer = require('../models').Customer
 //let Order = require('../models').Order
 let Customer = db.Customer
-let Order = db.Order
+//let Order = db.Order
 let Boxes = db.Boxes
-let OrderItem = db.OrderItem
+//let OrderItem = db.OrderItem
 
 let router = express.Router()
 
