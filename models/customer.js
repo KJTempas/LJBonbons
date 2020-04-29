@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Customer = sequelize.define('Customer', {
-      customerID: DataTypes.INTEGER,
+      
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
       email: DataTypes.STRING
@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     //Boxes.associate = function(models) {
       // associations can be defined here
 
-      
+      Customer.sync({force: true}).then( () => {       
+        console.log('synced customer table')    }) 
     
     return Customer;
   };

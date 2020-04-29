@@ -1,8 +1,10 @@
 {
-  "development": {
-    "dialect": "sqlite",
-    "storage": "development.db"
-  },
+    "development": {
+        "storage": "customer.sqlite",
+        "dialect": "sqlite"
+
+    },
+  
   "test": {
     "username": "root",
     "password": null,
@@ -16,7 +18,11 @@
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "use-env-variable": "DATABASE_URL",
     
   }
+  
+    
+
 }

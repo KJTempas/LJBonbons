@@ -1,6 +1,6 @@
 <template>
    <div>
-       <span class="boxType">{{boxes.boxDescription}}</span>
+       <span class="boxType">{{box.boxDescription}}</span>
        <p>
        <input id="orderBox" type = "checkbox"
        v-model="orderBox" v-on:change="$emit('isOrdered', boxDescription)>
@@ -17,7 +17,7 @@ export default {
    },
    data() {
        return {
-           boxDescription: this.boxes.boxDescription
+           boxDescription: this.boxes.boxDescription,
            boxOrdered: this.boxes.ordered
        }
    }

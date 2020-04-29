@@ -42,7 +42,7 @@
 </template>
 
 <script>
-//create and export component here
+
 import Box from '@/components/Box'
 
 export default { 
@@ -52,55 +52,32 @@ export default {
     },
     data() {
         return {
-            boxes: [],
-            //boxSizeSelected: '',
-            //coatingTypeSelected: '',
-            //small: 'small',
-           //large: 'large',
-            //milkChocolate: 'milkChocolate',
-            //darkChocolate: 'darkChocolate'
+            boxes: [],  
         }
     },
     props: {
-        id: Number,
+        id: Number,  //maybe I don't need these anymore?
         boxSize: String,
         coating: String
     },
     methods: {
-        addBox() {
+        addBox() {  //I don't think I need this either? - don't need to create new box?; just emit
            //construct box object
             let newBox = { size: this.boxSizeSelected, coating: this.coatingTypeSelected}
            //send new box object to parent to send to order table to display
             this.$emit('box-added', newBox) 
             //reset radio buttons
-            this.boxSizeSelected = ''
-            this.coatingTypeSelected = ''
+            //this.boxSizeSelected = ''  //don't need anymore
+            //this.coatingTypeSelected = ''
         },
 
         buildBoxOptions(boxSize, coating) {
             let boxOptionsUrl = "http://localhost:3000/boxOptions"
             fetch(boxOptionsURL)  //go to the url and fetch the box options
-                .then(resp => resp.json()) //convert objects to json
-                .then(boxOptions => {
-
-                    let boxOptionContainer = document.querySelector('#boxOption-container')
-                    boxOptions.forEach(boxOption => { //loop through all box options in server.json
-                        let singleBoxOption = document.createElement('div')
-                        singleBoxOption.classList.add('boxOption')
-        
-/*
-            let boxOption = document.createElement('div')
-            let optionLabel = document.createElement('label')
-            optionLabel.innerHTML = (boxSize + coating)
-            let checkBox = document.createElement("INPUT")
-            checkBox.setAttribute("type", "checkbox");
-            checkBox.setAttribute("class", "checkbox")
-            checkBox.setAttribute("value", id)
-            boxOption.appendChild(checkbox)
-            boxOption.appendChild(optionLabel)
-        }*/
-
-        }),
+                .then(boxes => {
+                    this.boxes = boxes
+                // return boxes   
+        })
     
    /* computed; {
         totalBoxes() {
@@ -110,11 +87,11 @@ export default {
             })
             return total
             }
-            
-        }*/
+         */   
+        }
         
     }
-    
+}   
 
 </script>
 

@@ -5,15 +5,16 @@
     <OrderForm 
       v-for="box in boxes"
       v-bind:key="box.id"
-      v-bind:boxDescription = "box.boxDescription"
+      v-bind:boxDescription ="box.boxDescription"
       v-bind:id="box.id"
       v-bind:boxSize="box.boxSize"
       v-bind:coating="box.coating"
-      v-on:box-added = "addBox"> </OrderForm>
+      v-on:box-added ="addBox"> </OrderForm>
     
     <OrderTable 
       v-bind:boxes="boxes" 
-      v-on:delete-box= "boxDeleted">
+      v-on:delete-box=
+      "boxDeleted">
       </OrderTable> 
 
       <Customer> </Customer> 
