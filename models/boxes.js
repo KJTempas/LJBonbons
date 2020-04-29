@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 
 
 
-Boxes.sync({force: true}).then( () => {        
+Boxes.sync({force: false}).then( () => {        
   console.log('synced boxes table')    })
 
 

@@ -2,14 +2,7 @@
   <div id="app">
     <Header></Header>
     <!--when box-added is called in OrderForm.vue, it sends data here and addBox method below is called-->
-    <OrderForm 
-      v-for="box in boxes"
-      v-bind:key="box.id"
-      v-bind:boxDescription ="box.boxDescription"
-      v-bind:id="box.id"
-      v-bind:boxSize="box.boxSize"
-      v-bind:coating="box.coating"
-      v-on:box-added ="addBox"> </OrderForm>
+    <OrderForm>  </OrderForm>
     
     <OrderTable 
       v-bind:boxes="boxes" 
@@ -106,7 +99,8 @@ export default {
       //this.email= ''
 
     },
-    
+   
+
     }
   }
 

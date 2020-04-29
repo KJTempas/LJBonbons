@@ -32,7 +32,7 @@ router.post('/boxes', function(req, res, next) {
 })
 
 router.get('/boxes', function(req, res, next) {
-    Boxes.findAll({order: ['id']})
+    Boxes.findAll()
     .then( boxes => {
         return res.json(boxes)
     })
