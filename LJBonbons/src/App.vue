@@ -9,7 +9,7 @@
       "boxDeleted">
       </OrderTable> 
 
-      <Customer> </Customer> 
+      <Customer v-on:add-customer ="addCustomer" ></Customer> 
       <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>      
      <Shipping ></Shipping>
 
@@ -46,7 +46,7 @@ export default {
     addBox(box) { //box coming from OrderForm 
       console.log('new box in app.vue method',box)//not showing
       this.boxes.push(box)
-      console.log('new box array in app.vue', boxes)
+      console.log('new box array in app.vue', box)
 
     },
 
@@ -57,7 +57,7 @@ export default {
         
     addCustomer(customer) {
       //call addCustomer method in CustomerService.js
-     this.$customer_api.addCustomer(customer).then( customer => {
+     this.$customer_api.addCustomer(customer).then( c => {
        //after req is complete, call updateCustomers to update array
        //this.updateCustomers()
        console.log('in App.vue - a customer', customer)

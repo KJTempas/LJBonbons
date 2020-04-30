@@ -34,6 +34,7 @@ router.post('/boxes', function(req, res, next) {
 router.get('/boxes', function(req, res, next) {
     Boxes.findAll()
     .then( boxes => {
+        console.log('boxes here')
         return res.json(boxes)
     })
     .catch( err => next.err() )
