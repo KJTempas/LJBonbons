@@ -23,18 +23,9 @@ export default {
         })
     },
 
-    addOrder(order) {
-        return axios.post(order_url, order).then(response => {
-            return response.data
-        })
-    },
-
-    addorderItem(orderItem) {
-        return axios.post(orderItem_url, order).then(response => {
-             return response.data
-        })
     
-    }
+
+    
 }
 /*
     getAllCustomers() {
