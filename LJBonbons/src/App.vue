@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <!--when box-added is called in OrderForm.vue, it sends data here and addBox method below is called-->
-    <OrderForm>  </OrderForm>
+    <OrderForm v-on:box-added="addBox"> </OrderForm>
     
     <OrderTable 
       v-bind:boxes="boxes" 
@@ -44,9 +43,11 @@ export default {
   },
   
   methods: {
-    addBox(newBox) { //called from v-on above
-      console.log('new box in app.vue method',newBox)
-      this.boxes.push(newBox)
+    addBox(box) { //box coming from OrderForm 
+      console.log('new box in app.vue method',box)//not showing
+      this.boxes.push(box)
+      console.log('new box array in app.vue', boxes)
+
     },
 
     boxDeleted(box) {
@@ -69,18 +70,9 @@ export default {
     finalizeOrder(customer, boxes) {
     //combine customer + boxes together in order
     //customer is already written to dbase on line 58; should it be here?
-      let finalOrder = { customer: this.customer, boxesOrdered: this.boxes}
-      console.log('final order is ', finalOrder)
-      this.orders.push(finalOrder)  //add this final order to the array of final orders
-      for (box in boxes){ 
-      //write boxes to the box table of database  
-          this.$box.api.addBox(box).then( box => {
-          }).catch(err => {
-            let msg = err.response.data.join(', ')
-            alert('Error adding box.\n' + msg)
-          })
-      }
-      let order = { customerID: this.customerID}
+    let order = { datePlaced: NOW, customerID: this.customerID, boxes: this.boxes}
+      //this.orders.push(finalOrder)  //add this final order to the array of final orders
+    
       //write order to order table in dbase
       this.$order.api.addOrder(order).then( order => {//write order to order table of dbase
 
@@ -88,11 +80,18 @@ export default {
             let msg = err.response.data.join(', ')
             alert('Error adding order.\n' + msg)
           })
+
           //write order Item to orderItem table in dbase
-      let OrderItem = { orderID: this.orderID}
-          //but there may be several order IDs - need an array of orderIDs
-       this.$orderItem.api.addOrderItem(orderItem)   
-      
+          boxes.forEach(box); {
+      let OrderItem = { orderID: this.orderID, boxID: this.boxID}
+          
+       this.$orderItem.api.addOrderItem(orderItem).then( orderItem => {
+
+       }).catch(err => {
+         let msg = err.response.data.join(',')
+         alert('Error adding orderItem.\n' + msg)
+       })  
+          }
       //clear input fields for customer - can this be done here?
      // this.firstName= ''
       //this.lastName= ''

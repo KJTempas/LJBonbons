@@ -1,0 +1,20 @@
+module.exports = (sequelize, DataTypes) => {
+    const Orders = sequelize.define('Orders', {
+      //orderID automatically generated
+      datePlaced: DataTypes.DATEONLY,
+      customerID: DataTypes.integer
+    }, {});
+    Orders.associate = function(models) {
+      // associations can be defined here
+      Orders.belongsTo(Customer)
+    };
+  
+  
+  
+  Orders.sync({force: true}).then( () => {        
+    console.log('synced orders table')    })
+  
+  
+  
+    return Orders;
+  };

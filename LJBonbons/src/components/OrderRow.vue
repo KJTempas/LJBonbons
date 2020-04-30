@@ -5,7 +5,7 @@
   
     <tr >
         <!--<td>{{box.id}}-->
-        <td>{{ box.size }}</td>
+        <td>{{ box.boxSize }}</td>
         <td>{{ box.coating }}</td>
         <td> </td>
        
