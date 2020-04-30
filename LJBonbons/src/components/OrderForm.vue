@@ -36,7 +36,6 @@ export default {
     methods: {
         addBox(box){//send to parent to sent to orderTable to display
             this.$emit('box-added', box)
-            console.log('box added in OrderForm.vue', box) //this working
         },
         
 

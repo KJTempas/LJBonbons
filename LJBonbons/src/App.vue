@@ -44,10 +44,7 @@ export default {
   
   methods: {
     addBox(box) { //box coming from OrderForm 
-      console.log('new box in app.vue method',box)//not showing
       this.boxes.push(box)
-      console.log('new box array in app.vue', box)
-
     },
 
     boxDeleted(box) {
@@ -70,11 +67,11 @@ export default {
     finalizeOrder(customer, boxes) {
     //combine customer + boxes together in order
     //customer is already written to dbase on line 58; should it be here?
-    let order = { datePlaced: NOW, customerID: this.customerID, boxes: this.boxes}
+    let order = {customerID: this.customerID} //datePlaced: NOW  gives error; orderID is automatic
       //this.orders.push(finalOrder)  //add this final order to the array of final orders
     
       //write order to order table in dbase
-      this.$order.api.addOrder(order).then( order => {//write order to order table of dbase
+      this.$orders_api.addOrder(order).then( order => {//write order to order table of dbase
 
       }).catch(err => {
             let msg = err.response.data.join(', ')
@@ -85,14 +82,14 @@ export default {
           boxes.forEach(box); {
       let OrderItem = { orderID: this.orderID, boxID: this.boxID}
           
-       this.$orderItem.api.addOrderItem(orderItem).then( orderItem => {
+       this.$orderItems_api.addOrderItem(orderItem).then( orderItem => {
 
        }).catch(err => {
          let msg = err.response.data.join(',')
          alert('Error adding orderItem.\n' + msg)
        })  
           }
-      //clear input fields for customer - can this be done here?
+      //clear input fields for customer - 
      // this.firstName= ''
       //this.lastName= ''
       //this.email= ''
