@@ -20,8 +20,8 @@ let orderItemsModel = sequelize['import']('./orderItems.js')
 
 db[customerModel.name] = customerModel
 db[boxesModel.name] = boxesModel
-db[ordersModel] = ordersModel
-db[orderItemsModel]=orderItemsModel
+db[ordersModel.name] = ordersModel
+db[orderItemsModel.name]=orderItemsModel
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
