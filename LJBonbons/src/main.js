@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 //Vue.config.productionTip = false
-//adding StudentServices to the Vue class prototype, so is accessible
+//adding Services files to the Vue class prototype, so is accessible
 Vue.prototype.$customer_api = CustomerAPIService
 Vue.prototype.$orderItems_api = orderItemsAPIService
 Vue.prototype.$orders_api = ordersAPIService
