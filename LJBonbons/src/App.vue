@@ -65,42 +65,15 @@ export default {
     },
 
     finalizeOrder(customer, boxes) {
-    //combine customer + boxes together in order
-    //customer is already written to dbase on line 58; should it be here?
-   /* 
-   let order = {customerID: this.customerID} //datePlaced: NOW  gives error; orderID is automatic
-      //this.orders.push(finalOrder)  //add this final order to the array of final orders
-    
-      //write order to order table in dbase
+      let order = {customerID: this.customerID, boxes: boxes}
       this.$orders_api.addOrder(order).then( order => {//write order to order table of dbase
 
-      }).catch(err => {
-            let msg = err.response.data.join(', ')
-            alert('Error adding order.\n' + msg)
-          })
-          //write order Item to orderItem table in dbase
-          this.boxes.forEach(function (box) {
-
-          let OrderItem = { orderID: this.orderID, boxID: this.box.boxID}
-          
-       this.$orderItems_api.addOrderItem(orderItem).then( orderItem => {
-
-       }).catch(err => {
-         let msg = err.response.data.join(',')
-         alert('Error adding orderItem.\n' + msg)
-       })  
-          })
-
-      
-      //clear input fields for customer - 
-     // this.firstName= ''
-      //this.lastName= ''
-      //this.email= ''
-*/
-    },
-  }
     
+    })
+    }
+   
   }
+}
 
 </script>
 
