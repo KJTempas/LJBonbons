@@ -28,9 +28,6 @@ export default {
             return response.data
         })
     },
-
-    
-
     
 }
 /*
@@ -40,7 +37,6 @@ export default {
         })
     },
 
-    
     updateCustomer(customer) {
         //url will be base URL /id
         return axios.patch(`${base_url}/${customer.id}`, customer).then(response => {

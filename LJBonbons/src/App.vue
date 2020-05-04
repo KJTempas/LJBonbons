@@ -11,7 +11,7 @@
 
       <Customer v-on:add-customer ="addCustomer" ></Customer> 
       <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>      
-     <Shipping ></Shipping>
+     
 
   </div>
 </template>
@@ -21,7 +21,7 @@ import Header from './components/Header.vue'
 import Customer from './components/Customer.vue'
 import OrderForm from './components/OrderForm.vue'
 import OrderTable from './components/OrderTable.vue'
-import Shipping from './components/Shipping.vue'
+
 
 
 export default {
@@ -39,7 +39,7 @@ export default {
     Customer,
     OrderForm,
     OrderTable,
-    Shipping
+
   },
   
   methods: {
@@ -54,34 +54,29 @@ export default {
 
      addCustomer(customer) {
       //call addCustomer method in CustomerService.js to write customer to dbase customer table
-      this.customer = customer
+     this.customer = customer
      this.$customer_api.addCustomer(customer).then( c => {
        console.log('in App.vue - a customer', customer) //works
      }).catch(err => {
        let msg = err.response.data.join(', ')
        alert('Error adding customer.\n' + msg)
      })
-     //this.customer = customer
+     
     },   
 
     finalizeOrder(customer, boxes) {  
-      //console.log('number of boxes is ', boxes.length)//undefined
       console.log('firstName', this.customer.firstName) //works
       //problem - don't have customerID as it is autoassigned - have to get it?
       //this.$customer_api.getCustomer(customer).then
       let order = {customerID: this.customer.customerID, boxes: this.boxes}
-      console.log('order just before sending to api.js is ' ,  order) //undefined
+      console.log('order just before sending to api.js is ' ,  order) //undefined due to customerID
       this.$orders_api.addOrder(order).then( order => {//write order to order table of dbase
 
     
     })
     },    
-    
-
-    
    //clear entry fields
    
-
   }
 }
 
