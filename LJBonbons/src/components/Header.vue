@@ -32,15 +32,15 @@ export default {
 
     }
     #johns {
-        color: orange;
+        color:#f117df ;
         font-size: 400%
     }
     #caribbean {
-        color: pink;
+        color:yellow;
         font-size: 400%
     }
     #bonbons {
-        color:#a9ddf5;
+        color:#66e440;
         font-size: 400%
     }
 

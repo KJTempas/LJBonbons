@@ -39,17 +39,17 @@ export default {
             this.errors = []
             if (this.firstName && this.lastName && this.email) {
                 let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email}
-                console.log(customer) //working this far
+                //console.log(customer) //working this far
                 // emit message to parent(App.vue) with new customer object
                 this.$emit('add-customer', customer)
             } else {
                 this.errors.push('Name and email are required.')
             }
            
-            //clear data fields- don't do this until order is finalize
-                //this.firstName= ''
-               // this.lastName= ''
-               // this.email= ''
+            //clear data fields- don't do this until order is finalized
+               // this.firstName= ''
+                //this.lastName= ''
+                //this.email= ''
                 
         }
     }
