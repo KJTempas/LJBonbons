@@ -2,7 +2,7 @@
     <div class="orderTable">
         <!-- write template here -->
         <div class="card order-list m-2 p-2">
-            <h4 class="card-title">Order Summary</h4>
+            <h4 class="card-title">Order Table</h4>
 
             <div class="edit-table-toggle form-check">
                 <input id="edit-table" type="checkbox" class="form-check-input" v-model="editTable">

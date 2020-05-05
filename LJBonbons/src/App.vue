@@ -10,7 +10,12 @@
       </OrderTable> 
 
       <Customer v-on:add-customer ="addCustomer" ></Customer> 
-      <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>      
+      <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>  
+      <Summary
+        v-bind:customer = "customer"
+        v-bind:boxes = "boxes">
+
+         </Summary>    
      
 
   </div>
@@ -21,6 +26,7 @@ import Header from './components/Header.vue'
 import Customer from './components/Customer.vue'
 import OrderForm from './components/OrderForm.vue'
 import OrderTable from './components/OrderTable.vue'
+import Summary from './components/Summary.vue'
 
 
 
@@ -39,6 +45,7 @@ export default {
     Customer,
     OrderForm,
     OrderTable,
+    Summary
 
   },
   
