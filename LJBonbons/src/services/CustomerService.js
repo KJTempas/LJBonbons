@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { response } from 'express'
+
 //axios will make requests from the Vue client to the Express API server
 const base_url = '/api/customer'
 let box_url = '/api/boxes'

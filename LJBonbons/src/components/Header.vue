@@ -32,7 +32,7 @@ export default {
 
     }
     #johns {
-        color:#f117df ;
+        color: #66e440 ;
         font-size: 400%
     }
     #caribbean {

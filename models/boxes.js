@@ -15,7 +15,5 @@ module.exports = (sequelize, DataTypes) => {
 Boxes.sync({force: false}).then( () => {        
   console.log('synced boxes table')    })
 
-
-
   return Boxes;
 };

@@ -14,11 +14,22 @@
                 <input id="lname" class="form-control" v-model.trim="lastName">
               </div>
 
-              <div class="form-group">
+                <div class="form-group">
                 <label for="email">Email</label>
                 <input id="email" class="form-control" v-model.trim="email">
+                </div>
+
+              <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input id="streetAddress" class="form-control" v-model.trim="streetAddress">
               </div>
              
+             <div class="form-group">
+                <label for="cityStateZip">City, State, Zip</label>
+                <input id="cityStateZip" class="form-control" v-model="cityStateZip">
+              </div>
+
+              
              <button class="btn btn-primary" v-on:click.prevent="addCustomer">Add Customer</button>
     </div>
 </template>
@@ -31,25 +42,23 @@ export default {
            firstName: '',
             lastName: '',
             email: '',
+            streetAddress: '',
+            cityStateZip: '',
             errors: [], 
         }
     },
     methods: {
         addCustomer() {
             this.errors = []
-            if (this.firstName && this.lastName && this.email) {
-                let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email}
+            if (this.firstName && this.lastName && this.email && this.streetAddress && this.cityStateZip) {
+                let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email, streetAddress: this.streetAddress, cityStateZip: this.cityStateZip}
                 //console.log(customer) //working this far
                 // emit message to parent(App.vue) with new customer object
                 this.$emit('add-customer', customer)
             } else {
-                this.errors.push('Name and email are required.')
+                this.errors.push('All fields must be filled out.')
             }
            
-            //clear data fields- don't do this until order is finalized
-               // this.firstName= ''
-                //this.lastName= ''
-                //this.email= ''
                 
         }
     }

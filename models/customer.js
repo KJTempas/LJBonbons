@@ -3,7 +3,9 @@ module.exports = (sequelize, DataTypes) => {
       
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
-      email: DataTypes.STRING
+      email: DataTypes.STRING,
+      streetAddress: DataTypes.STRING,
+      cityStateZip: DataTypes.STRING
     }, {});
     //Boxes.associate = function(models) {
       // associations can be defined here

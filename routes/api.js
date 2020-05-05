@@ -7,14 +7,14 @@ let Customer = db.Customer
 let Orders = db.Orders
 let Boxes = db.Boxes
 let OrderItems = db.orderItems
-let queryInterface = require('Sequelize').QueryInterface
+//let queryInterface = require('Sequelize').QueryInterface
 
 let router = express.Router()
 
 //create a new customer w a post route to /customers; return status 201/ok if works
 router.post('/customer', function(req, res, next) {
     Customer.create(req.body).then( (data) => {
-        return res.status(201).send('ok')
+        return res.json(data)
     }).catch( err => {
         console.log(err)
         if(err instanceof Sequelize.ValidationError) {
@@ -24,13 +24,7 @@ router.post('/customer', function(req, res, next) {
         return next (err)
     })
 })
-//to get the id of a customer
-/*router.get('/customer', function(req, res, next) {
-    Customer.find(customer)
-    .then( customer => {
-        return res.json(customer.id)
-    }).catch( err =>next.err() )
-})*/
+
 
 //a route to post a new box
 router.post('/boxes', function(req, res, next) {
@@ -61,11 +55,12 @@ router.post('/orders', function(req, res, next) {
     Orders.create(orderFromCustomer)
         .then( (orderFromDB) =>{
             //convert boxes into form expected by one OrderItem for in dbase
+            console.log('line 58', boxes)
             let orderItems = boxes.map(function(box) {
                 return { order: orderFromDB.id, boxID: box.id}
             })
-            
-            QueryInterface.bulkInsert('OrderItems', orderItems).then( () => {
+            console.log('line62', orderItems)
+            OrderItems.bulkCreate(orderItems).then( () => {
              
                 return res.send('inserted into order and orderItems')
             })

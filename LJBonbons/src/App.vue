@@ -56,7 +56,9 @@ export default {
       //call addCustomer method in CustomerService.js to write customer to dbase customer table
      this.customer = customer
      this.$customer_api.addCustomer(customer).then( c => {
-       console.log('in App.vue - a customer', customer) //works
+       //console.log('in App.vue - a customer', customer) //works
+       console.log(c)
+       this.customer = c
      }).catch(err => {
        let msg = err.response.data.join(', ')
        alert('Error adding customer.\n' + msg)
@@ -65,14 +67,10 @@ export default {
     },   
 
     finalizeOrder(customer, boxes) {  
-      console.log('firstName', this.customer.firstName) //works
-      //problem - don't have customerID as it is autoassigned - have to get it?
-      //this.$customer_api.getCustomer(customer).then
-      let order = {customerID: this.customer.customerID, boxes: this.boxes}
-      console.log('order just before sending to api.js is ' ,  order) //undefined due to customerID
+      let order = {customerID: this.customer.id, boxes: this.boxes}
+      
       this.$orders_api.addOrder(order).then( order => {//write order to order table of dbase
-
-    
+      //writing to the orderItems table is done at the server level
     })
     },    
    //clear entry fields
