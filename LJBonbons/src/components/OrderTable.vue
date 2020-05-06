@@ -1,6 +1,6 @@
 <template>
     <div class="orderTable">
-        <!-- write template here -->
+        
         <div class="card order-list m-2 p-2">
             <h4 class="card-title">Order Table</h4>
 
@@ -10,22 +10,17 @@
             </div>
 
             <div id="order-table">
-                <!--<h4> {{boxes.length}} boxes </h4>-->
+                
                 <table class="table">
                     <tr><!-- the column headers-->
                         <!--<th>Box #</th>-->
                         <th>Box Size</th>
                         <th>Coating Selected</th>
-                        <th>$</th>
+                        <th>Quantity</th>
                         <th v-show="editTable">Delete</th>
                         
                     </tr>
-                   <!-- <tr v-for="box in boxes">
-                        <td> box # will go here</td>
-                        <td>{{box.size}}</td>
-                        <td>{{box.coating}}</td>
-                        <td>$ will go here</td>
-                    </tr>-->
+                   
                     <OrderRow
                     v-for="box in boxes"
                     v-bind:key="box.id"

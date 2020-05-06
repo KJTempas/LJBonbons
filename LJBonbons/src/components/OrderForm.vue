@@ -34,8 +34,10 @@ export default {
         
     },
     methods: {
-        addBox(box){//send to parent to sent to orderTable to display
-            this.$emit('box-added', box)
+        //addBox(box){//send to parent to send to orderTable to display
+            //this.$emit('box-added', box)
+        addBox(box, quantity) {
+            this.$emit('box-added', box, quantity)
         },
         
 

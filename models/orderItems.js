@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
       //orderItemID is auto generated
       orderID: DataTypes.INTEGER,
       boxID: DataTypes.INTEGER,
+      quantity: DataTypes.INTEGER
       
     }, {});
     orderItems.associate = function(models) {

@@ -80,7 +80,7 @@ export default {
       //writing to the orderItems table is done at the server level
     })
     },    
-   //clear entry fields
+
    
   }
 }
