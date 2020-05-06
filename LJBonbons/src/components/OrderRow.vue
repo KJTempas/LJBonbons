@@ -7,7 +7,7 @@
         <!--<td>{{box.id}}-->
         <td>{{ box.boxSize }}</td>
         <td>{{ box.coating }}</td>
-        <td> </td>
+        <td> {{ quantitySelected }}</td>
        
         <td v-show="edit">
             <img class="delete-icon" v-on:click="deleteBox(box)" src="@/assets/delete.png">
