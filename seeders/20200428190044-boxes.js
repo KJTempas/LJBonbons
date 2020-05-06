@@ -2,23 +2,23 @@
 
 const boxes = [
   {
-      "boxDescription": "Size - Small; Coating - Milk Chocolate",
+      "boxDescription": "Size - Small(12); Coating - Milk Chocolate",
       "boxSize": "small",
       "coating": "milkChoc"
   },
   {
       
-      "boxDescription": "Size - Small; Coating - Dark Chocolate",
+      "boxDescription": "Size - Small(12); Coating - Dark Chocolate",
       "boxSize": "small",
       "coating": "darkChoc"
   },{
       
-      "boxDescription": "Size - Large; Coating - Milk Chocolate",
+      "boxDescription": "Size - Large(24); Coating - Milk Chocolate",
       "boxSize": "large",
       "coating": "milkChoc"
   },{
       
-      "boxDescription": "Size - Large; Coating - Dark Chocolate",
+      "boxDescription": "Size - Large(24); Coating - Dark Chocolate",
       "boxSize": "large",
       "coating": "darkChoc"
   }, 

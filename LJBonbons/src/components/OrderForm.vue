@@ -3,9 +3,9 @@
 
         <div class="card add-customer m-2 p-2">
             <div class="order">
-              <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you or your loved ones</h4>
+              <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you</h4>
               <h5 class="card-title"> Each box contains coconut, rum, pina colada, lime, mango and passionfruit flavored bonbons</h5>
-             <h5> Check a box you'd like to order</h5>
+             <h5> Select the type and quantity of boxes you'd like to order</h5>
                <Box v-for="box in boxes" v-bind:key="box.id"
                    
                         v-bind:box="box"

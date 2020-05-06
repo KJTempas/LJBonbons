@@ -50,7 +50,7 @@ export default {
   },
   
   methods: {
-    addBox(box) { //box coming from OrderForm 
+    addBox(box,quantity) { //box coming from OrderForm 
       this.boxes.push(box)
     },
 

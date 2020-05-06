@@ -57,7 +57,8 @@ router.post('/orders', function(req, res, next) {
             //convert boxes into form expected by one OrderItem for in dbase
             console.log('line 58', boxes)
             let orderItems = boxes.map(function(box) {
-                return { order: orderFromDB.id, boxID: box.id}
+                //return { order: orderFromDB.id, boxID: box.id}
+                return { orderID: orderFromDB.id, boxID: box.id}
             })
             console.log('line62', orderItems)
             OrderItems.bulkCreate(orderItems).then( () => {
