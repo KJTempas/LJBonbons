@@ -7,7 +7,7 @@
         <!--<td>{{box.id}}-->
         <!--<td>{{ box.boxSize }}</td>
         <td>{{ box.coating }}</td>-->
-        <td> {{ boxAndQuantity.boxSize}}</td>
+        <td> {{ boxAndQuantity.box.boxSize}}</td>
         <td> {{boxAndQuantity.boxCoating}}
 
         <td> {{ boxAndQuantity.quantitySelected }}</td>

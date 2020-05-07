@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <Header></Header>
-    <OrderForm v-on:box-added="addBox"> </OrderForm>
+    <OrderForm v-on:box-added="addBoxandQuantity"> </OrderForm>
     
     <OrderTable 
-      v-bind:boxes="boxes" 
+      v-bind:boxesAndQuantity="boxesAndQuantity" 
+      
       v-on:delete-box=
       "boxDeleted">
       </OrderTable> 
@@ -13,7 +14,7 @@
       <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>  
       <Summary
         v-bind:customer = "customer"
-        v-bind:boxes = "boxes">
+        v-bind:boxes = "boxesAndQuantity">
 
          </Summary>    
      
@@ -35,7 +36,7 @@ export default {
   data() {
     return {
       customer: {}, //array of customers in data //but this is an object - just one customer
-      boxes: [],//array of boxes for a customer
+      boxesAndQuantity: [],//array of boxes and quantity for a customer
       orders: []
 
     }
@@ -50,9 +51,9 @@ export default {
   },
   
   methods: {
-    addBox(box,quantitySelected) { //box coming from OrderForm 
+    addBoxAndQuantity(boxAndQuantity) { //box and quantity coming from OrderForm 
     //addBox(boxId, quantitySelected) {}
-      this.boxes.push(box)
+      this.boxesAndQuantity.push(boxAndQuantity)
     },
 
     boxDeleted(box) {
@@ -74,8 +75,8 @@ export default {
      
     },   
 
-    finalizeOrder(customer, boxes) {  
-      let order = {customerID: this.customer.id, boxes: this.boxes}
+    finalizeOrder(customer, boxesAndQuantity) {  
+      let order = {customerID: this.customer.id, boxesAndQuantity: this.boxesAndQuantity}
       
       this.$orders_api.addOrder(order).then( order => {//write order to order table of dbase
       //writing to the orderItems table is done at the server level

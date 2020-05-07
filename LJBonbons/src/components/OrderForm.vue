@@ -6,10 +6,12 @@
               <h4 class="card-title">Enjoy Caribbean flavored bonbons shipped to you</h4>
               <h5 class="card-title"> Each box contains coconut, rum, pina colada, lime, mango and passionfruit flavored bonbons</h5>
              <h5> Select the type and quantity of boxes you'd like to order</h5>
+             <!-- v-on:event(what event?) this needs to match method in child? = "method below called"  -->
                <Box v-for="box in boxes" v-bind:key="box.id"
                    
                         v-bind:box="box"
-                        v-on:addBox="addBox">
+                        
+                        v-on:box-added="addBoxAndQuantity">
                 </Box>
                       
         </div>
@@ -27,22 +29,21 @@ export default {
     components:{Box},
     data() {
         return {
-            boxes: [],  
+            //boxes: [],
+            boxesAndQuanity: [], 
+
         }
     },
     props: {
         
     },
     methods: {
-        //addBox(box){//send to parent to send to orderTable to display - original
-            //this.$emit('box-added', box)
-        //addBox(box, quantity) { //revision; but maybe this should be made in Box.vue
-          //  this.$emit('box-added', box, quantity)
-        addBox(boxAndQuantity) {  //option to send info from Box.vue to app.vue
-            console.log('box and quantity', boxAndQuantity)
+        
+        addBoxAndQuantity(boxAndQuantity) {  //option to send info from Box.vue to app.vue
+            console.log('in OrderForm.vue box and quantity', boxAndQuantity)
+            //problem is here; why box-added? there is no event  - same as in Box.vue?
             this.$emit('box-added', boxAndQuantity) //send it on to App.vue
             
-    
         },
         
 
