@@ -34,10 +34,15 @@ export default {
         
     },
     methods: {
-        //addBox(box){//send to parent to send to orderTable to display
+        //addBox(box){//send to parent to send to orderTable to display - original
             //this.$emit('box-added', box)
-        addBox(box, quantity) {
-            this.$emit('box-added', box, quantity)
+        //addBox(box, quantity) { //revision; but maybe this should be made in Box.vue
+          //  this.$emit('box-added', box, quantity)
+        addBox(boxAndQuantity) {  //option to send info from Box.vue to app.vue
+            console.log('box and quantity', boxAndQuantity)
+            this.$emit('box-added', boxAndQuantity) //send it on to App.vue
+            
+    
         },
         
 

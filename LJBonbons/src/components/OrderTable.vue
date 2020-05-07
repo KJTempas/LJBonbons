@@ -25,6 +25,7 @@
                     v-for="box in boxes"
                     v-bind:key="box.id"
                     v-bind:box="box"
+                    
                     v-bind:edit="editTable"
                     v-on:delete-box="boxDeleted">
                      </OrderRow>

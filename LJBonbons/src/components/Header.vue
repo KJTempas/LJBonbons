@@ -36,7 +36,7 @@ export default {
         font-size: 400%
     }
     #caribbean {
-        color:yellow;
+        color: lightblue;
         font-size: 400%
     }
     #bonbons {

@@ -5,9 +5,12 @@
   
     <tr >
         <!--<td>{{box.id}}-->
-        <td>{{ box.boxSize }}</td>
-        <td>{{ box.coating }}</td>
-        <td> {{ quantitySelected }}</td>
+        <!--<td>{{ box.boxSize }}</td>
+        <td>{{ box.coating }}</td>-->
+        <td> {{ boxAndQuantity.boxSize}}</td>
+        <td> {{boxAndQuantity.boxCoating}}
+
+        <td> {{ boxAndQuantity.quantitySelected }}</td>
        
         <td v-show="edit">
             <img class="delete-icon" v-on:click="deleteBox(box)" src="@/assets/delete.png">
