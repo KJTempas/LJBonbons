@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <Header></Header>
-    <OrderForm v-on:box-added="addBoxandQuantity"> </OrderForm>
+    <!-- this v-on needs to match what is in OrderForm in the template for it's child-->
+    <OrderForm v-on:box-addedFromOrderForm="addBoxAndQuantity"> </OrderForm>
     
     <OrderTable 
-      v-bind:boxesAndQuantity="boxesAndQuantity" 
+      v-bind:boxesAndQuantities="boxesAndQuantities" 
       
       v-on:delete-box=
       "boxDeleted">
@@ -14,7 +15,7 @@
       <button class="btn btn-warning" id="finalize" v-on:click="finalizeOrder">Finalize Order</button>  
       <Summary
         v-bind:customer = "customer"
-        v-bind:boxes = "boxesAndQuantity">
+        v-bind:boxesAndQuantities = "boxesAndQuantities">
 
          </Summary>    
      
@@ -36,7 +37,7 @@ export default {
   data() {
     return {
       customer: {}, //array of customers in data //but this is an object - just one customer
-      boxesAndQuantity: [],//array of boxes and quantity for a customer
+      boxesAndQuantities: [],//array of boxes and quantity for a customer
       orders: []
 
     }
@@ -52,8 +53,8 @@ export default {
   
   methods: {
     addBoxAndQuantity(boxAndQuantity) { //box and quantity coming from OrderForm 
-    //addBox(boxId, quantitySelected) {}
-      this.boxesAndQuantity.push(boxAndQuantity)
+    console.log('in App.vue', boxAndQuantity)
+      this.boxesAndQuantities.push(boxAndQuantity)
     },
 
     boxDeleted(box) {

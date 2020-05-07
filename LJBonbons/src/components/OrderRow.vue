@@ -7,10 +7,10 @@
         <!--<td>{{box.id}}-->
         <!--<td>{{ box.boxSize }}</td>
         <td>{{ box.coating }}</td>-->
-        <td> {{ boxAndQuantity.box.boxSize}}</td>
-        <td> {{boxAndQuantity.boxCoating}}
+        <td> {{boxAndQuantity.box.boxSize}}</td>
+        <td> {{boxAndQuantity.box.boxCoating}}
 
-        <td> {{ boxAndQuantity.quantitySelected }}</td>
+        <td> {{ boxAndQuantity.box.quantity }}</td>
        
         <td v-show="edit">
             <img class="delete-icon" v-on:click="deleteBox(box)" src="@/assets/delete.png">
@@ -22,8 +22,8 @@
 export default {
     name: 'OrderRow',
     props: {
-        box: Object,
-        edit: Boolean
+        boxAndQuantity: Object,
+        edit: Boolean,
     },
     methods: {
         

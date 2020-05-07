@@ -11,7 +11,7 @@
        <p>
        
        <label for="quantity"> Quantity of boxes </label>
-       <!-- v-on change means when there is a change in the v-model data, the "method" below is called    -->
+       <!-- v-on change means when there is a change the HTML element, the "method" below is called    -->
        <select  v-model="quantitySelected" v-on:change="addBoxAndQuantity"> 
            <option v-for="quantity in quantities" 
             v-bind:value = "quantity"
@@ -40,8 +40,7 @@ export default {
        return {
            boxOrdered: '',
            quantitySelected:'',
-           quantities: [0,1,2,3],
-           
+           quantities: [0,1,2,3], 
        }
    },
 
@@ -51,7 +50,7 @@ export default {
            console.log('quantity', this.quantitySelected) 
            let boxAndQuantity = {box: this.box, quantity: this.quantitySelected}
            console.log('in Box.vue boxAndQ', boxAndQuantity)
-           //sending  to OrderForm (parent)- event(where does event name come from?), what is being sent to parent
+           //sending to OrderForm (parent)- event(where does event name come from?), what is being sent to parent
            this.$emit('box-added', boxAndQuantity)
            
        }

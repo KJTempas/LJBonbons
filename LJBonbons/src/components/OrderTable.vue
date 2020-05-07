@@ -22,9 +22,9 @@
                     </tr>
                    
                     <OrderRow
-                    v-for="box in boxes"
-                    v-bind:key="box.id"
-                    v-bind:box="box"
+                    v-for="boxAndQuantity in boxesAndQuantities"
+                    v-bind:key="boxAndQuantity.box.id"
+                    v-bind:boxAndQuantity="boxAndQuantity"
                     
                     v-bind:edit="editTable"
                     v-on:delete-box="boxDeleted">
@@ -49,8 +49,8 @@ export default {
             
         }
     },
-    props: {
-        boxes: Array
+    props: { //data passed in from parent
+        boxesAndQuantities: Array
     },
     methods: {
         boxDeleted(box) {
