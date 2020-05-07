@@ -46,10 +46,8 @@ export default {
 
    methods:{ 
        addBoxAndQuantity() {
-          
-           console.log('quantity', this.quantitySelected) 
+
            let boxAndQuantity = {box: this.box, quantity: this.quantitySelected}
-           console.log('in Box.vue boxAndQ', boxAndQuantity)
            //sending to OrderForm (parent)- event(where does event name come from?), what is being sent to parent
            this.$emit('box-added', boxAndQuantity)
            

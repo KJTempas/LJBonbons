@@ -53,8 +53,8 @@ export default {
         boxesAndQuantities: Array
     },
     methods: {
-        boxDeleted(box) {
-            this.$emit('delete-box', box)
+        boxDeleted(boxAndQuantity) {
+            this.$emit('delete-box', boxAndQuantity)
         },
           
 

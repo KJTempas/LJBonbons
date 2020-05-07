@@ -7,8 +7,7 @@
     <OrderTable 
       v-bind:boxesAndQuantities="boxesAndQuantities" 
       
-      v-on:delete-box=
-      "boxDeleted">
+      v-on:delete-box="boxDeleted">
       </OrderTable> 
 
       <Customer v-on:add-customer ="addCustomer" ></Customer> 
@@ -57,9 +56,9 @@ export default {
       this.boxesAndQuantities.push(boxAndQuantity)
     },
 
-    boxDeleted(box) {
+    boxDeleted(boxAndQuantity) {
         //this filters the boxes array and returns all boxes that are not equal to this (box), so removes the box from the array
-          this.boxes = this.boxes.filter(function(b) {return b !=box})
+          this.boxesAndQuantities = this.boxesAndQuantities.filter(function(b) {return b !=boxesAndQuantities})
           },
 
      addCustomer(customer) {
