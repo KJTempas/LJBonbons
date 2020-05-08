@@ -1,7 +1,5 @@
 
-<template> <!--note that template element contains a <tr>, not a <div>  -->
-   <!--template elements must contain exactly one child element(like the <tr>)  -->
-       <!--but that element can contain many children   -->
+<template> 
   
     <tr >
         

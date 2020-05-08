@@ -2,7 +2,7 @@
     <div class="header">
 
         <div class="jumbotron">
-            <!--<h1 class="display-4" id="title">Long John's Caribbean Bonbons</h1>-->
+            
             <h1 class="display-4" id="title"<span id="long">Long</span><span id="johns">John's</span><span id="caribbean">Caribbean</span><span id="bonbons">Bonbons</span></h1>
         </div>
 

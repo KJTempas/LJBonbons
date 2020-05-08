@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <!-- this v-on needs to match what is in OrderForm in the template for it's child-->
+    <!-- this v-on needs to match what is in OrderForm in the template for its child-->
     <OrderForm v-on:box-addedFromOrderForm="addBoxAndQuantity"> </OrderForm>
     
     <OrderTable 
@@ -35,7 +35,7 @@ export default {
   name: 'app',
   data() {
     return {
-      customer: {}, //array of customers in data //but this is an object - just one customer
+      customer: {}, //a customer objecty
       boxesAndQuantities: [],//array of boxes and quantity for a customer
       orders: []
 

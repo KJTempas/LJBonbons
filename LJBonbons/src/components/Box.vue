@@ -1,11 +1,5 @@
 <template>
-   <!--<div> original version
-       <span class="boxType">{{box.boxDescription}}</span>
-       <p>
-       <input id="orderBox" type = "checkbox"
-       v-model="boxOrdered" v-on:change="$emit('addBox', box)">
-        </p>   
-    </div>-->
+   
 <div>
     <span class="boxType">{{box.boxDescription}}</span>
        <p>
@@ -48,7 +42,7 @@ export default {
        addBoxAndQuantity() {
 
            let boxAndQuantity = {box: this.box, quantity: this.quantitySelected}
-           //sending to OrderForm (parent)- event(where does event name come from?), what is being sent to parent
+           //sending to OrderForm (parent)- event, what is being sent to parent
            this.$emit('box-added', boxAndQuantity)
            
        }

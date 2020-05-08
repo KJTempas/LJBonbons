@@ -9,12 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       Orders.belongsTo(Customer)
     };
   
-  
-  
   Orders.sync({force: true}).then( () => {        
     console.log('synced orders table')    })
-  
-  
   
     return Orders;
   };

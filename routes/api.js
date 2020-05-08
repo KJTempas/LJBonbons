@@ -66,7 +66,6 @@ router.post('/orders', function(req, res, next) {
             })
 
     })
-
 })
 
 module.exports = router

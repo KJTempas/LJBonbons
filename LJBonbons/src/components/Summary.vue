@@ -1,14 +1,13 @@
 <template>
     <div class="summary">
         <h3> Your Order Summary </h3>
-        <p> Customer information: <br>
-            Customer id: {{customer.id}}<br>
-            First and Last Name: {{customer.firstName}} {{customer.lastName}}
+        <p> 
+         Thank you, {{customer.firstName}} {{customer.lastName}} for ordering from Long John's Bonbons.  
+                Your order should arrive in 5-7 business days. Enjoy!
+            
         </p>
-        <p>Number of boxes you ordered:  <br>
-         
-        </p>
-        <p> Thanks for ordering from Long John's Bonbons.  Your order should arrive in 5-7 business days. Enjoy!</p>
+        
+        
     </div>
 </template>
 
@@ -16,8 +15,8 @@
 export default {
     name: 'Summary',
     props: { 
-        customer: {},  //customer is an Object
-        //boxes: {}
+        customer: {},  
+        
     }
 
 }

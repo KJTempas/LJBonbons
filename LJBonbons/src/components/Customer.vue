@@ -28,8 +28,7 @@
                 <label for="cityStateZip">City, State, Zip</label>
                 <input id="cityStateZip" class="form-control" v-model="cityStateZip">
               </div>
-
-              
+     
              <button class="btn btn-primary" v-on:click.prevent="addCustomer">Add Customer</button>
     </div>
 </template>
@@ -57,9 +56,7 @@ export default {
                 this.$emit('add-customer', customer)
             } else {
                 this.errors.push('All fields must be filled out.')
-            }
-           
-                
+            }       
         }
     }
 }

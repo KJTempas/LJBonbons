@@ -13,7 +13,6 @@
                 
                 <table class="table">
                     <tr><!-- the column headers-->
-                        <!--<th>Box #</th>-->
                         <th>Box Size</th>
                         <th>Coating Selected</th>
                         <th>Quantity</th>
@@ -68,5 +67,5 @@ export default {
 #order-table {
     background-color: #a9f5d4;
 }
-/* write any styles for this component here */
+
 </style>

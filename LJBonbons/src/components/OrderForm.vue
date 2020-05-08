@@ -40,8 +40,7 @@ export default {
     },
     methods: {
         
-        addBoxAndQuantity(boxAndQuantity) {  //option to send info from Box.vue to app.vue
-            
+        addBoxAndQuantity(boxAndQuantity) {  // method to send info from OrderForm.vue to app.vue
             this.$emit('box-addedFromOrderForm', boxAndQuantity) //send it on to App.vue
             
         },
