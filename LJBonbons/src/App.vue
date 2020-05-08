@@ -66,7 +66,6 @@ export default {
      this.customer = customer
      this.$customer_api.addCustomer(customer).then( c => {
        
-       console.log(c)
        this.customer = c
      }).catch(err => {
        let msg = err.response.data.join(', ')
