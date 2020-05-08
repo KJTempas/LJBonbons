@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Orders = sequelize.define('Orders', {
       //orderID automatically generated
-      //datePlaced: DataTypes.DATEONLY,
+      
       customerID: DataTypes.INTEGER
     }, {});
     Orders.associate = function(models) {

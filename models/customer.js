@@ -7,8 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       streetAddress: DataTypes.STRING,
       cityStateZip: DataTypes.STRING
     }, {});
-    //Boxes.associate = function(models) {
-      // associations can be defined here
+    
 
       Customer.sync({force: true}).then( () => {       
         console.log('synced customer table')    }) 

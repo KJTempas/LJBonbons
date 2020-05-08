@@ -52,7 +52,7 @@ export default {
             this.errors = []
             if (this.firstName && this.lastName && this.email && this.streetAddress && this.cityStateZip) {
                 let customer = { firstName: this.firstName, lastName: this.lastName,  email: this.email, streetAddress: this.streetAddress, cityStateZip: this.cityStateZip}
-                //console.log(customer) //working this far
+                
                 // emit message to parent(App.vue) with new customer object
                 this.$emit('add-customer', customer)
             } else {
