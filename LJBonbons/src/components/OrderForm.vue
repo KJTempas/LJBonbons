@@ -41,8 +41,7 @@ export default {
     methods: {
         
         addBoxAndQuantity(boxAndQuantity) {  //option to send info from Box.vue to app.vue
-            console.log('in OrderForm.vue box and quantity', boxAndQuantity)
-            //problem is here; why box-added? there is no event  - same as in Box.vue?
+            
             this.$emit('box-addedFromOrderForm', boxAndQuantity) //send it on to App.vue
             
         },

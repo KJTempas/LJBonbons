@@ -52,20 +52,20 @@ export default {
   
   methods: {
     addBoxAndQuantity(boxAndQuantity) { //box and quantity coming from OrderForm 
-    console.log('in App.vue', boxAndQuantity)
+    
       this.boxesAndQuantities.push(boxAndQuantity)
     },
 
     boxDeleted(boxAndQuantity) {
         //this filters the boxes array and returns all boxes that are not equal to this (box), so removes the box from the array
-          this.boxesAndQuantities = this.boxesAndQuantities.filter(function(b) {return b !=boxesAndQuantities})
+          this.boxesAndQuantities = this.boxesAndQuantities.filter(function(b) {return b !=boxAndQuantity})
           },
 
      addCustomer(customer) {
       //call addCustomer method in CustomerService.js to write customer to dbase customer table
      this.customer = customer
      this.$customer_api.addCustomer(customer).then( c => {
-       //console.log('in App.vue - a customer', customer) //works
+       
        console.log(c)
        this.customer = c
      }).catch(err => {
@@ -75,8 +75,8 @@ export default {
      
     },   
 
-    finalizeOrder(customer, boxesAndQuantity) {  
-      let order = {customerID: this.customer.id, boxesAndQuantity: this.boxesAndQuantity}
+    finalizeOrder(customer, boxesAndQuantities) {  
+      let order = {customerID: this.customer.id, boxesAndQuantities: this.boxesAndQuantities}
       
       this.$orders_api.addOrder(order).then( order => {//write order to order table of dbase
       //writing to the orderItems table is done at the server level

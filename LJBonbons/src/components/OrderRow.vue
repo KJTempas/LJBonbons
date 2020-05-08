@@ -27,7 +27,7 @@ export default {
         
         deleteBox() {
             if (confirm(`Delete this box/these boxes?`)) {
-                console.log('in delete Row', this.boxAndQuantity)
+                
                 this.$emit('delete-box', this.boxAndQuantity)  //send to parent(OrderTable)
                 
             }
