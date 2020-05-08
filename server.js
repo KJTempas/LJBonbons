@@ -1,9 +1,12 @@
 let express = require('express')
 let bodyParser = require('body-parser')
 let api_routes = require('./routes/api.js')
+let path = require('path')
 
 //App configuration
 let app = express()
+
+app.use(express.static(path.join(__dirname, 'bonbon-company', 'dist')))
 
 //body parser converts data sent in a request to JSON
 app.use(bodyParser.json()) 
