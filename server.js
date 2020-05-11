@@ -6,7 +6,7 @@ let path = require('path')
 //App configuration
 let app = express()
 
-app.use(express.static(path.join(__dirname, 'bonbon-company', 'dist')))
+app.use(express.static(path.join(__dirname, 'LJBonbons', 'dist')))
 
 
 

@@ -7,7 +7,7 @@
 * HTML5
 * CSS
 * Vue.js
-* Express server
+* Node.js Server with Express server framework
 * Deployed to Heroku
 * PostgreSQL
 
