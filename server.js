@@ -8,6 +8,8 @@ let app = express()
 
 app.use(express.static(path.join(__dirname, 'bonbon-company', 'dist')))
 
+
+
 //body parser converts data sent in a request to JSON
 app.use(bodyParser.json()) 
 
