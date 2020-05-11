@@ -16,6 +16,7 @@ npm install
 To run locally, at base directory - npm start 
 and at client directory- npm run serve
 View at 127.0.0.1:8080
+At Heroku - http://fathomless-river-30268.herokuapp.com/ 
 
 #### Features
 * Vue components for Header, OrderTable, OrderRow, Customer, and more
