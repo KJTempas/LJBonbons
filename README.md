@@ -28,3 +28,5 @@ To-do list:
 #### Status
 * Submitted for class
 
+#### Screen shot
+![Screen Shot 2021-02-25 at 10 34 19 AM](https://user-images.githubusercontent.com/54478043/109186214-4e54b880-7756-11eb-9d92-5d9c54c894f3.png)
